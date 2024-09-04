@@ -1,0 +1,15 @@
+services:
+  reg_helper:
+    container_name: reg_helper
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - networks_frontend
+
+networks:
+  networks_frontend:
+    driver: bridge
