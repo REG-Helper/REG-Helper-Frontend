@@ -6,7 +6,7 @@ FROM base As deps
 
 COPY package*.json ./
 
-RUN npm install --only=production
+RUN npm install
 
 FROM base As builder
 
