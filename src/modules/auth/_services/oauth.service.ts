@@ -3,7 +3,7 @@ import {
   GetOauthLinkResponse,
   OauthLoginRequest,
   OauthLoginResponse,
-} from "../_types/auth";
+} from "../_types";
 import { endpoints } from "@/shared/configs";
 import { ApiResponse } from "@/shared/types";
 
