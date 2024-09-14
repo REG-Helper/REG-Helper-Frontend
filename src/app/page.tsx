@@ -1,9 +1,7 @@
-import { Button } from "@/shared/components/ui/button"
+import { Button } from "@/shared/components/ui/button";
+import { paths } from "@/shared/routes";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-   <main>
-    <Button>Click me</Button>
-   </main>
-  );
+export default function HomePage() {
+  return redirect(paths.courses.root);
 }
