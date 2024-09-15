@@ -5,9 +5,11 @@ import { devtools } from "zustand/middleware";
 
 type UserState = {
   user: User | null;
+  loading: boolean;
   setUser: (user: User | null) => void;
   credentials: Credentials | null;
   setCredentials: (credentials: Credentials | null) => void;
+  setLoading: (loading: boolean) => void;
 };
 
 export const useUserStore = create<UserState>()(
@@ -16,5 +18,7 @@ export const useUserStore = create<UserState>()(
     setUser: (user) => set({ user }),
     credentials: null,
     setCredentials: (credentials) => set({ credentials }),
+    loading: true,
+    setLoading: (loading) => set({ loading }),
   }))
 );

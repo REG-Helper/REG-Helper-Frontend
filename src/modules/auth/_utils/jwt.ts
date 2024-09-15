@@ -37,7 +37,7 @@ export const isValidToken = (token: string): boolean => {
       return false;
     }
 
-    const currentTime = Date.now() / 1000;
+    const currentTime = Math.floor(Date.now() / 1000);
 
     return decoded.exp > currentTime;
   } catch (error) {
@@ -46,7 +46,7 @@ export const isValidToken = (token: string): boolean => {
 };
 
 export const tokenExpired = (exp: number): void => {
-  const currentTime = Date.now() / 1000;
+  const currentTime = Math.floor(Date.now() / 1000);
   const timeLeft = exp - currentTime;
 
   setTimeout(() => {
@@ -59,7 +59,7 @@ export const tokenExpired = (exp: number): void => {
     } catch (error) {
       throw error;
     }
-  }, timeLeft);
+  }, timeLeft * 1000);
 };
 
 export const setSession = (accessToken: string) => {

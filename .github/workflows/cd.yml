@@ -7,6 +7,9 @@ on:
     types:
       - completed
 
+env:
+  NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+
 jobs:
   deploy:
     name: deploy

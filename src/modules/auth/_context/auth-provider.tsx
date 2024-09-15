@@ -9,6 +9,7 @@ import { getUserProfile } from "../_services";
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
   const setUser = useUserStore((state) => state.setUser);
+  const setLoading = useUserStore((state) => state.setLoading);
   const setCredentials = useUserStore((state) => state.setCredentials);
 
   const checkUserSession = useCallback(async () => {
@@ -22,6 +23,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
         setCredentials({ accessToken });
         setUser(userProfile);
+        setLoading(false);
       } else {
         resetSession();
       }
@@ -32,6 +34,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
   const resetSession = () => {
     setUser(null);
+    setLoading(false);
     setCredentials(null);
   };
 
