@@ -50,16 +50,10 @@ export const tokenExpired = (exp: number): void => {
   const timeLeft = exp - currentTime;
 
   setTimeout(() => {
-    try {
-      alert("Token expired!");
+    localStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
 
-      localStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
-
-      window.location.href = paths.auth.login;
-    } catch (error) {
-      throw error;
-    }
-  }, timeLeft * 1000);
+    window.location.href = paths.auth.login;
+  }, timeLeft);
 };
 
 export const setSession = (accessToken: string) => {

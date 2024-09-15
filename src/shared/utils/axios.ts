@@ -14,6 +14,6 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   (error) =>
     Promise.reject(
-      (error.message && error.response.data) || "Something went wrong!"
+      (error.message && error.response?.data) || "Something went wrong!"
     )
 );
