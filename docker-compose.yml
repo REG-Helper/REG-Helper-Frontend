@@ -4,8 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    environment:
-      - NEXT_PUBLIC_API_URL
+    env_file:
+      - .env
     restart: always
     ports:
       - 3000:3000

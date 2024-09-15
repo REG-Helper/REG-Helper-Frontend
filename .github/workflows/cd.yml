@@ -7,9 +7,6 @@ on:
     types:
       - completed
 
-env:
-  NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-
 jobs:
   deploy:
     name: deploy
@@ -21,6 +18,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Create .env file
+        run: |
+          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env
 
       - name: Deploy docker-compose stack
         run: docker compose up -d --build --force-recreate
