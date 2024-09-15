@@ -1,4 +1,5 @@
 import { ReactQueryProvider } from "@/shared/react-query";
+import { SnackbarProvider } from "@/shared/components/notistack";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
@@ -21,7 +22,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Suspense>
-          <ReactQueryProvider>{children}</ReactQueryProvider>
+          <SnackbarProvider>
+            <ReactQueryProvider>{children}</ReactQueryProvider>
+          </SnackbarProvider>
         </Suspense>
       </body>
     </html>

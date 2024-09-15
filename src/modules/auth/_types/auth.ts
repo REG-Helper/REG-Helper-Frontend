@@ -9,7 +9,7 @@ export type OauthLoginResponse = {
   user: User;
 };
 
-export type GetOauthLinkResponse = {
+export type GetOauthUrlResponse = {
   url: string;
 };
 
