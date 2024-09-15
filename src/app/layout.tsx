@@ -8,7 +8,10 @@ import "src/globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Reg Helper",
+  title: {
+    default: "Reg Helper",
+    template: `%s | Reg Helper`,
+  },
   description: "Check remaining credits: Computer Engineering",
   icons: "/next.svg",
 };

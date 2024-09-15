@@ -1,4 +1,3 @@
-import { Button } from "@/shared/components/ui/button";
 import { paths } from "@/shared/routes";
 import { redirect } from "next/navigation";
 
