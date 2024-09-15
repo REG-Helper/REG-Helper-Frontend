@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
@@ -39,7 +41,7 @@ export default function GoogleCallbackPage() {
         });
       }
     },
-    [googleLogin, router, setCredentials, setUser]
+    [googleLogin, router]
   );
 
   useEffect(() => {

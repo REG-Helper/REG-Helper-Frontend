@@ -3,6 +3,7 @@ import { SnackbarProvider } from "@/shared/components/notistack";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
+import { AuthProvider } from "@/modules/auth/_context";
 import "src/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,7 +27,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <Suspense>
           <SnackbarProvider>
-            <ReactQueryProvider>{children}</ReactQueryProvider>
+            <ReactQueryProvider>
+              <AuthProvider>{children}</AuthProvider>
+            </ReactQueryProvider>
           </SnackbarProvider>
         </Suspense>
       </body>
