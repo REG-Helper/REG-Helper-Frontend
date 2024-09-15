@@ -12,7 +12,7 @@ export default function Navbar_Login() {
         </div>
         <a href="#" className="flex items-center text-blue-700 hover:text-blue-800 pr-4">
           <UserCircle className="w-5 h-5 mr-1" />
-          <span>เข้าสู่ระบบ</span>
+          <span>My Account</span>
         </a>
       </header>
     )

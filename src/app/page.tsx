@@ -5,7 +5,7 @@ import CourseSearch from "@/components/ui/home";
 export default function Homepage() {
   return (
   <>
-    <Navbar_Not_Login></Navbar_Not_Login>
+    <Navbar_Login></Navbar_Login>
     <CourseSearch></CourseSearch>
    </>
   );
