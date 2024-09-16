@@ -1,6 +1,6 @@
 const ROOTS = {
-  OAUTH: "/oauth",
-  USERS: "/users",
+  OAUTH: '/oauth',
+  USERS: '/users',
 };
 
 export const endpoints = {
