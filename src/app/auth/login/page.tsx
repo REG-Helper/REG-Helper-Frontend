@@ -1,4 +1,4 @@
-import { LoginView } from "@/modules/auth/_views";
+import { GoogleLoginBtn } from "@/modules/auth";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +6,9 @@ export const metadata: Metadata = {
 };
 
 export default function LoginPage() {
-  return <LoginView />;
+  return (
+    <div>
+      <GoogleLoginBtn />
+    </div>
+  );
 }
