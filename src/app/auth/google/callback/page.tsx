@@ -1,15 +1,13 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 "use client";
 
-import { useSearchParams, useRouter } from "next/navigation";
-import { useCallback, useEffect } from "react";
-import { OauthLoginRequest } from "@/modules/auth/_types";
-import { enqueueSnackbar } from "notistack";
 import { useGoogleLogin } from "@/modules/auth/_hooks";
 import { useUserStore } from "@/modules/auth/_store";
-import { paths } from "@/shared/routes";
+import { OauthLoginRequest } from "@/modules/auth/_types";
 import { setSession } from "@/modules/auth/_utils";
+import { paths } from "@/shared/routes";
+import { useSearchParams, useRouter } from "next/navigation";
+import { enqueueSnackbar } from "notistack";
+import { useCallback, useEffect } from "react";
 
 export default function GoogleCallbackPage() {
   const router = useRouter();
@@ -36,12 +34,13 @@ export default function GoogleCallbackPage() {
         enqueueSnackbar("เข้าสู่ระบบสำเร็จ", { variant: "info" });
       } catch (error) {
         router.push(paths.root);
+
         enqueueSnackbar("เกิดข้อผิดพลาดในการเชื่อมต่อกับบัญชี Google", {
           variant: "error",
         });
       }
     },
-    [googleLogin, router]
+    [googleLogin, router, setCredentials, setUser]
   );
 
   useEffect(() => {

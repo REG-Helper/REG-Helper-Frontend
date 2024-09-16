@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { PropsWithChildren, useCallback, useEffect } from "react";
@@ -11,6 +10,12 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   const setUser = useUserStore((state) => state.setUser);
   const setLoading = useUserStore((state) => state.setLoading);
   const setCredentials = useUserStore((state) => state.setCredentials);
+
+  const resetSession = useCallback(() => {
+    setUser(null);
+    setLoading(false);
+    setCredentials(null);
+  }, [setCredentials, setLoading, setUser]);
 
   const checkUserSession = useCallback(async () => {
     try {
@@ -30,17 +35,11 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     } catch (error) {
       resetSession();
     }
-  }, []);
-
-  const resetSession = () => {
-    setUser(null);
-    setLoading(false);
-    setCredentials(null);
-  };
+  }, [resetSession, setCredentials, setLoading, setUser]);
 
   useEffect(() => {
     checkUserSession();
-  }, []);
+  }, [checkUserSession]);
 
   return <>{children}</>;
 };
