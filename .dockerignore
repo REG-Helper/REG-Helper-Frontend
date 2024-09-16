@@ -12,3 +12,4 @@ README.md
 .next
 !.next/static
 !.next/standalone
+.lintstagedrc

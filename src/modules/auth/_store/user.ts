@@ -1,7 +1,7 @@
-import { User } from "@/shared/types";
-import { Credentials } from "../_types";
-import { create } from "zustand";
-import { devtools } from "zustand/middleware";
+import type { User } from '@/shared/types';
+import type { Credentials } from '../_types';
+import { create } from 'zustand';
+import { devtools } from 'zustand/middleware';
 
 type UserState = {
   user: User | null;
@@ -20,5 +20,5 @@ export const useUserStore = create<UserState>()(
     setCredentials: (credentials) => set({ credentials }),
     loading: true,
     setLoading: (loading) => set({ loading }),
-  }))
+  })),
 );

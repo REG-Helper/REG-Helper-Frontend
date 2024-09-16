@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Button } from "@/shared/components/ui/button";
-import { useGetGoogleLoginUrl } from "./_hooks";
+import { Button } from '@/shared/components/ui/button';
+import { useGetGoogleLoginUrl } from './_hooks';
 
 export function GoogleLoginBtn() {
   const { mutateAsync: getGoogleLoginUrl } = useGetGoogleLoginUrl();
