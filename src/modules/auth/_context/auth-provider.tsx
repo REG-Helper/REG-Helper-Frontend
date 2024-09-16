@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { PropsWithChildren, useCallback, useEffect } from "react";
-import { ACCESS_TOKEN_STORAGE_KEY } from "../_constants";
-import { isValidToken, setSession } from "../_utils";
-import { useUserStore } from "../_store";
-import { getUserProfile } from "../_services";
+import { PropsWithChildren, useCallback, useEffect } from 'react';
+import { ACCESS_TOKEN_STORAGE_KEY } from '../_constants';
+import { isValidToken, setSession } from '../_utils';
+import { useUserStore } from '../_store';
+import { getUserProfile } from '../_services';
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
   const setUser = useUserStore((state) => state.setUser);

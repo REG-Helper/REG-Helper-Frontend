@@ -1,10 +1,10 @@
 const PATH = {
-  COURSES: "/courses",
-  AUTH: "/auth",
+  COURSES: '/courses',
+  AUTH: '/auth',
 };
 
 export const paths = {
-  root: "/",
+  root: '/',
   courses: {
     root: `${PATH.COURSES}`,
   },

@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useGoogleLogin } from "@/modules/auth/_hooks";
-import { useUserStore } from "@/modules/auth/_store";
-import { OauthLoginRequest } from "@/modules/auth/_types";
-import { setSession } from "@/modules/auth/_utils";
-import { paths } from "@/shared/routes";
-import { useSearchParams, useRouter } from "next/navigation";
-import { enqueueSnackbar } from "notistack";
-import { useCallback, useEffect } from "react";
+import { useGoogleLogin } from '@/modules/auth/_hooks';
+import { useUserStore } from '@/modules/auth/_store';
+import { OauthLoginRequest } from '@/modules/auth/_types';
+import { setSession } from '@/modules/auth/_utils';
+import { paths } from '@/shared/routes';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { enqueueSnackbar } from 'notistack';
+import { useCallback, useEffect } from 'react';
 
 export default function GoogleCallbackPage() {
   const router = useRouter();
@@ -17,8 +17,8 @@ export default function GoogleCallbackPage() {
   const setUser = useUserStore((state) => state.setUser);
   const setCredentials = useUserStore((state) => state.setCredentials);
 
-  const code = searchParams.get("code");
-  const state = searchParams.get("state");
+  const code = searchParams.get('code');
+  const state = searchParams.get('state');
 
   const handleLogin = useCallback(
     async (oauthLoginRequest: OauthLoginRequest) => {
@@ -31,16 +31,16 @@ export default function GoogleCallbackPage() {
 
         router.push(paths.root);
 
-        enqueueSnackbar("เข้าสู่ระบบสำเร็จ", { variant: "info" });
+        enqueueSnackbar('เข้าสู่ระบบสำเร็จ', { variant: 'info' });
       } catch (error) {
         router.push(paths.root);
 
-        enqueueSnackbar("เกิดข้อผิดพลาดในการเชื่อมต่อกับบัญชี Google", {
-          variant: "error",
+        enqueueSnackbar('เกิดข้อผิดพลาดในการเชื่อมต่อกับบัญชี Google', {
+          variant: 'error',
         });
       }
     },
-    [googleLogin, router, setCredentials, setUser]
+    [googleLogin, router, setCredentials, setUser],
   );
 
   useEffect(() => {

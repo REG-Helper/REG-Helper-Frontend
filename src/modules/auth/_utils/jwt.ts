@@ -1,7 +1,7 @@
-import { paths } from "@/shared/routes";
-import { JwtPayload } from "../_types";
-import { ACCESS_TOKEN_STORAGE_KEY } from "../_constants";
-import { axiosInstance } from "@/shared/utils";
+import { paths } from '@/shared/routes';
+import { JwtPayload } from '../_types';
+import { ACCESS_TOKEN_STORAGE_KEY } from '../_constants';
+import { axiosInstance } from '@/shared/utils';
 
 export const jwtDecode = (token: string): JwtPayload | null => {
   try {
@@ -9,14 +9,14 @@ export const jwtDecode = (token: string): JwtPayload | null => {
       return null;
     }
 
-    const tokenParts = token.split(".");
+    const tokenParts = token.split('.');
 
     if (tokenParts.length !== 3) {
-      throw new Error("Invalid token!");
+      throw new Error('Invalid token!');
     }
 
     const encodedPayload = tokenParts[1];
-    const base64Payload = encodedPayload.replace(/-/g, "+").replace(/_/g, "/");
+    const base64Payload = encodedPayload.replace(/-/g, '+').replace(/_/g, '/');
     const decodedPayload = JSON.parse(atob(base64Payload));
 
     return decodedPayload;
@@ -33,7 +33,7 @@ export const isValidToken = (token: string): boolean => {
   try {
     const decoded = jwtDecode(token);
 
-    if (!decoded || typeof decoded?.exp !== "number") {
+    if (!decoded || typeof decoded?.exp !== 'number') {
       return false;
     }
 
@@ -65,10 +65,10 @@ export const setSession = (accessToken: string) => {
 
       const decodedToken = jwtDecode(accessToken);
 
-      if (decodedToken && typeof decodedToken?.exp === "number") {
+      if (decodedToken && typeof decodedToken?.exp === 'number') {
         tokenExpired(decodedToken.exp);
       } else {
-        throw new Error("Invalid access token!");
+        throw new Error('Invalid access token!');
       }
     } else {
       localStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);

@@ -1,7 +1,7 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "ค้นหาวิชาเรียน",
+  title: 'ค้นหาวิชาเรียน',
 };
 
 export default function CoursesPage() {

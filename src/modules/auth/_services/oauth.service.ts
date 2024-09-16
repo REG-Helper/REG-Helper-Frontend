@@ -1,25 +1,25 @@
-import { axiosInstance } from "@/shared/utils";
+import { axiosInstance } from '@/shared/utils';
 import {
   GetOauthUrlResponse,
   OauthLoginRequest,
   OauthLoginResponse,
-} from "../_types";
-import { endpoints } from "@/shared/configs";
+} from '../_types';
+import { endpoints } from '@/shared/configs';
 
 export const getGoogleLoginUrl = async (): Promise<string> => {
   const response = await axiosInstance.get<GetOauthUrlResponse>(
-    endpoints.oauth.google
+    endpoints.oauth.google,
   );
 
   return response.data.url;
 };
 
 export const googleLogin = async (
-  data: OauthLoginRequest
+  data: OauthLoginRequest,
 ): Promise<OauthLoginResponse> => {
   const response = await axiosInstance.post<OauthLoginResponse>(
     endpoints.oauth.googleLogin,
-    data
+    data,
   );
 
   return response.data;

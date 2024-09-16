@@ -1,4 +1,4 @@
-import { User } from "@/shared/types";
+import { User } from '@/shared/types';
 
 export type Credentials = {
   accessToken: string;
