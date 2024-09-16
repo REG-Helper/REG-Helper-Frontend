@@ -1,5 +1,5 @@
 import { paths } from '@/shared/routes';
-import { JwtPayload } from '../_types';
+import type { JwtPayload } from '../_types';
 import { ACCESS_TOKEN_STORAGE_KEY } from '../_constants';
 import { axiosInstance } from '@/shared/utils';
 
@@ -41,6 +41,7 @@ export const isValidToken = (token: string): boolean => {
 
     return decoded.exp > currentTime;
   } catch (error) {
+    console.error(error);
     return false;
   }
 };

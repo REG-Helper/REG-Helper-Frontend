@@ -1,5 +1,5 @@
 import { endpoints } from '@/shared/configs';
-import { User } from '@/shared/types';
+import type { User } from '@/shared/types';
 import { axiosInstance } from '@/shared/utils';
 
 export const getUserProfile = async (): Promise<User> => {

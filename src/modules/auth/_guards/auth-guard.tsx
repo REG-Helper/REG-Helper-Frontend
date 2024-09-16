@@ -1,6 +1,7 @@
 'use client';
 
-import { PropsWithChildren, useEffect } from 'react';
+import type { PropsWithChildren} from 'react';
+import { useEffect } from 'react';
 import { useUserStore } from '../_store';
 import { paths } from '@/shared/routes';
 import { useRouter } from 'next/navigation';

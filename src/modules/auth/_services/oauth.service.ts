@@ -1,5 +1,5 @@
 import { axiosInstance } from '@/shared/utils';
-import {
+import type {
   GetOauthUrlResponse,
   OauthLoginRequest,
   OauthLoginResponse,

@@ -1,5 +1,5 @@
-import { User } from '@/shared/types';
-import { Credentials } from '../_types';
+import type { User } from '@/shared/types';
+import type { Credentials } from '../_types';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 

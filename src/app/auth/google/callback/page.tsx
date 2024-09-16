@@ -2,7 +2,7 @@
 
 import { useGoogleLogin } from '@/modules/auth/_hooks';
 import { useUserStore } from '@/modules/auth/_store';
-import { OauthLoginRequest } from '@/modules/auth/_types';
+import type { OauthLoginRequest } from '@/modules/auth/_types';
 import { setSession } from '@/modules/auth/_utils';
 import { paths } from '@/shared/routes';
 import { useSearchParams, useRouter } from 'next/navigation';
@@ -33,6 +33,8 @@ export default function GoogleCallbackPage() {
 
         enqueueSnackbar('เข้าสู่ระบบสำเร็จ', { variant: 'info' });
       } catch (error) {
+        console.error(error);
+        
         router.push(paths.root);
 
         enqueueSnackbar('เกิดข้อผิดพลาดในการเชื่อมต่อกับบัญชี Google', {
