@@ -7,7 +7,7 @@ module.exports = {
     'eslint-config-prettier',
     'eslint-config-next',
     'plugin:@typescript-eslint/recommended',
-    'plugin:@tanstack/eslint-plugin-query/recommended'
+    'plugin:@tanstack/eslint-plugin-query/recommended',
   ],
   plugins: ['unused-imports', 'prettier', '@typescript-eslint'],
   parser: '@typescript-eslint/parser',
@@ -30,6 +30,9 @@ module.exports = {
   //  * 2 ~ 'error'
 
   rules: {
+    'react/no-unescaped-entities': 'off',
+    '@next/next/no-page-custom-font': 'off',
+
     // general
     'no-alert': 0,
     camelcase: 0,

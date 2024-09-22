@@ -13,6 +13,6 @@ export function GoogleLoginBtn() {
   };
 
   return (
-    <Button onClick={redirectToGoogleLoginPage}>เข้าสู่ระบบด้วย Google</Button>
+    <Button onClick={redirectToGoogleLoginPage} variant='ghost'>เข้าสู่ระบบ</Button>
   );
 }
