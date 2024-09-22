@@ -34,7 +34,7 @@ export default function GoogleCallbackPage() {
         enqueueSnackbar('เข้าสู่ระบบสำเร็จ', { variant: 'info' });
       } catch (error) {
         console.error(error);
-        
+
         router.push(paths.root);
 
         enqueueSnackbar('เกิดข้อผิดพลาดในการเชื่อมต่อกับบัญชี Google', {
