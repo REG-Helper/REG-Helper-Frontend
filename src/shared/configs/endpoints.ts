@@ -17,5 +17,6 @@ export const endpoints = {
   courses: {
     get: (params: Record<string, unknown>) =>
       addParamsToUrl(`${ROOTS.COURSES}`, params),
+    getById: (id: string) => `${ROOTS.COURSES}/${id}`,
   },
 };

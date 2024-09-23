@@ -20,5 +20,5 @@ export function NavbarLinks({ onClick }: Props) {
         </Link>
       ))}
     </div>
-  );
+  ); 
 }
