@@ -5,7 +5,7 @@ export function SearchCourse() {
     <div>
       <Input
         placeholder="ค้นหาด้วยรหัสวิชา / ชื่อวิชา"
-        className="font-medium"
+        className="font-medium text-base py-5"
       />
     </div>
   );

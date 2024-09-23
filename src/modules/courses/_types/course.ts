@@ -1,4 +1,4 @@
-import { CourseGroup, CourseSubGroup, DayOfWeek } from '@/shared/enums';
+import type { CourseGroup, CourseSubGroup, DayOfWeek } from '../_enums';
 
 export type Course = {
   id: string;
@@ -8,8 +8,8 @@ export type Course = {
   descriptionTh: string;
   credit: number;
   creditStr: string;
-  group: string;
-  subGroup: string;
+  group: CourseGroup;
+  subGroup: CourseSubGroup;
   sections: Section[];
 };
 

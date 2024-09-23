@@ -1,8 +1,10 @@
 'use client';
 
+import { CourseGroupMapper, CourseSubGroupMapper } from './_constants';
 import { useGetCourses } from './_hooks';
 import { useEffect, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { CourseCard } from './course-card';
 
 export function Courses() {
   const { ref, inView } = useInView();
@@ -26,9 +28,9 @@ export function Courses() {
 
   return (
     <div>
-      <div>
+      <div className="flex flex-col gap-4">
         {courses.map((course) => (
-          <div key={course.id}>{course.nameEn}</div>
+          <CourseCard key={course.id} {...course} />
         ))}
       </div>
 
