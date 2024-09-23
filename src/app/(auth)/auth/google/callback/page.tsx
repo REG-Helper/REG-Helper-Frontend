@@ -1,7 +1,6 @@
 'use client';
 
 import { useGoogleLogin } from '@/modules/auth/_hooks';
-import { useUserStore } from '@/modules/auth/_store';
 import type { OauthLoginRequest } from '@/modules/auth/_types';
 import { setSession } from '@/modules/auth/_utils';
 import { paths } from '@/shared/routes';
@@ -14,19 +13,14 @@ export default function GoogleCallbackPage() {
   const searchParams = useSearchParams();
   const { mutateAsync: googleLogin } = useGoogleLogin();
 
-  const setUser = useUserStore((state) => state.setUser);
-  const setCredentials = useUserStore((state) => state.setCredentials);
-
   const code = searchParams.get('code');
   const state = searchParams.get('state');
 
   const handleLogin = useCallback(
     async (oauthLoginRequest: OauthLoginRequest) => {
       try {
-        const { credentials, user } = await googleLogin(oauthLoginRequest);
+        const { credentials } = await googleLogin(oauthLoginRequest);
 
-        setCredentials(credentials);
-        setUser(user);
         setSession(credentials.accessToken);
 
         router.push(paths.root);
@@ -42,7 +36,7 @@ export default function GoogleCallbackPage() {
         });
       }
     },
-    [googleLogin, router, setCredentials, setUser],
+    [googleLogin, router],
   );
 
   useEffect(() => {

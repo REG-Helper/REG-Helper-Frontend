@@ -1,6 +1,9 @@
+import { addParamsToUrl } from '../utils';
+
 const ROOTS = {
   OAUTH: '/oauth',
   USERS: '/users',
+  COURSES: '/courses',
 };
 
 export const endpoints = {
@@ -10,5 +13,9 @@ export const endpoints = {
   },
   users: {
     me: `${ROOTS.USERS}/me`,
+  },
+  courses: {
+    get: (params: Record<string, unknown>) =>
+      addParamsToUrl(`${ROOTS.COURSES}`, params),
   },
 };
