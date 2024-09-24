@@ -4,10 +4,10 @@ import { NavbarLogo } from './navbar-logo';
 import { NavbarLinks } from './navbar-links';
 import { NavbarMobileMenu } from './navbar-mobile-menu';
 
-export default function Navbar() {
+export function Navbar() {
   return (
-    <nav className="bg-white shadow-lg">
-      <div className="mx-auto flex items-center justify-between px-8 py-6 xl:max-w-screen-xl">
+    <nav className="bg-white shadow-lg sticky w-full top-0 right-0">
+      <div className="mx-auto flex items-center justify-between px-4 md:px-8 py-5 xl:max-w-screen-xl">
         <div className="flex items-center">
           <div className="mr-8">
             <NavbarLogo />

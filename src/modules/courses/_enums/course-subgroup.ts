@@ -1,0 +1,12 @@
+export enum CourseSubGroup {
+  FREE_ELEC = 'FREE_ELEC',
+  FUND = 'FUND',
+  LANG = 'LANG',
+  FAC_SPEC = 'FAC_SPEC',
+  GENED_ELEC = 'GENED_ELEC',
+  CORE = 'CORE',
+  REQUIRED = 'REQUIRED',
+  ELEC_REQ = 'ELEC_REQ',
+  ALT_STUDY = 'ALT_STUDY',
+  MAJOR_ELEC = 'MAJOR_ELEC',
+}
