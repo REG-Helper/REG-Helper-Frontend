@@ -1,17 +1,19 @@
-export const navLinks = [
+import { paths } from '@/shared/routes';
+
+export const NAV_LINKS = [
   {
     id: 1,
     title: 'ค้นหาวิชาเรียน',
-    path: '/courses',
+    path: paths.courses.root,
   },
   {
     id: 2,
     title: 'แนะนำวิชาเรียน',
-    path: '/suggestion',
+    path: paths.suggestion.root,
   },
   {
     id: 3,
     title: 'เกี่ยวกับเรา',
-    path: '/about',
+    path: paths.about.root,
   },
 ];

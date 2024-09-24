@@ -1,6 +1,9 @@
 const PATH = {
   COURSES: '/courses',
   AUTH: '/auth',
+  SUGGESTION: '/suggestion',
+  ABOUT: '/about',
+  PROFILE: '/profile',
 };
 
 export const paths = {
@@ -8,7 +11,13 @@ export const paths = {
   courses: {
     root: `${PATH.COURSES}`,
   },
-  auth: {
-    login: `${PATH.AUTH}/login`,
+  suggestion: {
+    root: `${PATH.SUGGESTION}`,
+  },
+  about: {
+    root: `${PATH.ABOUT}`,
+  },
+  profile: {
+    root: `${PATH.PROFILE}`,
   },
 };

@@ -1,6 +1,5 @@
 'use client';
 
-import { CourseGroupMapper, CourseSubGroupMapper } from './_constants';
 import { useGetCourses } from './_hooks';
 import { useEffect, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -10,7 +9,7 @@ export function Courses() {
   const { ref, inView } = useInView();
   const { data, isFetchingNextPage, fetchNextPage, hasNextPage, isLoading } =
     useGetCourses({
-      perPage: 50,
+      perPage: 20,
     });
 
   const courses = useMemo(
