@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 import { Prompt } from 'next/font/google';
 import { AuthProvider } from '@/modules/auth/_context';
 import 'src/globals.css';
-import { Navbar } from '@/modules/navbar';
 
 const prompt = Prompt({
   weight: ['400', '500', '700'],
@@ -30,10 +29,7 @@ export default function RootLayout({
       <body className={prompt.className}>
         <SnackbarProvider>
           <ReactQueryProvider>
-            <AuthProvider>
-              <Navbar />
-              {children}
-            </AuthProvider>
+            <AuthProvider>{children}</AuthProvider>
           </ReactQueryProvider>
         </SnackbarProvider>
       </body>

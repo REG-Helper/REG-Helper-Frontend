@@ -1,6 +1,6 @@
 'use client';
 
-import type { PropsWithChildren} from 'react';
+import type { PropsWithChildren } from 'react';
 import { useCallback, useEffect } from 'react';
 import { ACCESS_TOKEN_STORAGE_KEY } from '../_constants';
 import { isValidToken, setSession } from '../_utils';
@@ -8,9 +8,9 @@ import { useUserStore } from '../_store';
 import { getUserProfile } from '../_services';
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
-  const setUser = useUserStore((state) => state.setUser);
-  const setLoading = useUserStore((state) => state.setLoading);
-  const setCredentials = useUserStore((state) => state.setCredentials);
+  const { setUser, setLoading, setCredentials } = useUserStore(
+    (state) => state.actions,
+  );
 
   const resetSession = useCallback(() => {
     setUser(null);
@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
       }
     } catch (error) {
       console.error(error);
-      
+
       resetSession();
     }
   }, [resetSession, setCredentials, setLoading, setUser]);
