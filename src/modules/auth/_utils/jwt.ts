@@ -53,7 +53,7 @@ export const tokenExpired = (exp: number): void => {
   setTimeout(() => {
     localStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
 
-    window.location.href = paths.auth.login;
+    window.location.href = paths.root;
   }, timeLeft);
 };
 

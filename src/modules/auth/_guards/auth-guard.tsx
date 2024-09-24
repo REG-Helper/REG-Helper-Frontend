@@ -19,7 +19,7 @@ export function AuthGuard({ children }: PropsWithChildren) {
     }
 
     if (!user) {
-      router.replace(paths.auth.login);
+      router.replace(paths.root);
       return;
     }
   }, [loading, user, router]);
