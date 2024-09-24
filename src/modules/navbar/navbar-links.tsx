@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { navLinks } from './constants';
+import { NAV_LINKS } from './constants';
 import { buttonVariants } from '@/shared/components/ui/button';
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 export function NavbarLinks({ onClick }: Props) {
   return (
     <div className="flex flex-col items-center gap-8 md:flex-row">
-      {navLinks.map((navLink) => (
+      {NAV_LINKS.map((navLink) => (
         <Link
           key={navLink.id}
           href={navLink.path}
@@ -20,5 +20,5 @@ export function NavbarLinks({ onClick }: Props) {
         </Link>
       ))}
     </div>
-  ); 
+  );
 }
