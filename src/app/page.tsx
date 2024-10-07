@@ -18,10 +18,10 @@ export default function HomePage() {
         </div>
         <div className="box-border flex items-center px-8">My Account</div>
       </div>
-      <div className="mx-16 my-8 mb-2 me-2 w-[200px] box-border rounded-md bg-gradient-to-br from-pink-500 to-orange-400 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl hover:text-zinc-600 focus:outline-none focus:ring-4 focus:ring-pink-200 dark:focus:ring-pink-800">
+      <div className="mx-16 my-8 mb-2 me-2 w-[200px] box-border rounded-[8px] bg-gradient-to-br from-pink-500 to-orange-400 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl hover:text-zinc-600 focus:outline-none focus:ring-4 focus:ring-pink-200 dark:focus:ring-pink-800">
         <Link href="/view_remaining_credits">View Remaining Credits</Link>
       </div>
-      <div className="mx-16 my-8 mb-2 me-2 w-[200px] box-border rounded-md bg-gradient-to-br from-pink-500 to-orange-400 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl hover:text-zinc-600 focus:outline-none focus:ring-4 focus:ring-pink-200 dark:focus:ring-pink-800">
+      <div className="mx-16 my-8 mb-2 me-2 w-[200px] box-border rounded-[8px] bg-gradient-to-br from-pink-500 to-orange-400 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl hover:text-zinc-600 focus:outline-none focus:ring-4 focus:ring-pink-200 dark:focus:ring-pink-800">
         <Link href="/jobs_suggestion">Jobs Suggestion</Link>
       </div>
     </main>
