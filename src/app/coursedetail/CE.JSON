@@ -1,0 +1,40 @@
+{
+    "id": "01076107_2565_3",
+    "subject_id": "01076107",
+    "year": 2565,
+    "type": "MAJOR",
+    "semester": 3,
+    "subject_name_th": "วงจรไฟฟ้าและอิเล็กทรอนิกส์",
+    "subject_name_en": "CIRCUITS AND ELECTRONICS",
+    "desc": "<p>�<span lang=\\\\\\\"TH\\\\\\\" style=\\\\\\\"font-size: 16pt; line-height: 115%; font-family: \\\\\\\"TH SarabunPSK\\\\\\\", sans-serif;\\\\\\\">พื้นฐานของวงจรไฟฟ้า กฎของโอห์ม กฎของเคอร์ซอฟ </span><span lang=\\\\\\\"TH\\\\\\\" style=\\\\\\\"font-size: 16pt; line-height: 115%; font-family: THSarabunPSK;\\\\\\\">โครงสร้างวงจรแบบโหนดและแบบลูป</span><span lang=\\\\\\\"TH\\\\\\\" style=\\\\\\\"font-size: 16pt; line-height: 115%; font-family: \\\\\\\"TH SarabunPSK\\\\\\\", sans-serif;\\\\\\\"> ทฤษฎีเทวินิน ทฤษฎีนอร์ตัน และซุปเปอร์โพซิชั่น ตัวเก็บประจุ ตัวเหนี่ยวนำ </span><span lang=\\\\\\\"TH\\\\\\\" style=\\\\\\\"font-size: 16pt; line-height: 115%; font-family: THSarabunPSK;\\\\\\\">อุปกรณ์สารกึ่งตัวนํา คุณสมบัติทางกระแส </span><span style=\\\\\\\"font-size: 16pt; line-height: 115%; font-family: THSarabunPSK;\\\\\\\"><span lang=\\\\\\\"TH\\\\\\\">แรงดันและความถี่ของอุปกรณ์อิเล็กทรอนิกส์ทฤษฎี รอยต่อพีเอ็นเบื้องต้น�<span lang=\\\\\\\"TH\\\\\\\" style=\\\\\\\"font-size: 12px;\\\\\\\">วงจรไดโอด การวิเคราะห์และออกแบบวงจรทรานซิสเตอร์ชนิด </span><span style=\\\\\\\"font-size: 12px;\\\\\\\">BJT <span lang=\\\\\\\"TH\\\\\\\">และ </span>MOS<span lang=\\\\\\\"TH\\\\\\\"> การวิเคราะห์วงจรออปแอมป์และการประยุกต์ใช้งาน</span></span><br />\r\n</span></span>  <span style=\\\\\\\"font-size: 16pt; line-height: 115%; font-family: \\\\\\\"TH SarabunPSK\\\\\\\", sans-serif;\\\\\\\">��������� Fundamentals electric circuit<span lang=\\\\\\\"TH\\\\\\\">. </span>Ohm\\\\\\'s law, Kirchhoff\\\\\\'s law,<span lang=\\\\\\\"TH\\\\\\\"> </span>Thevenin\\\\\\'s and Norton\\\\\\'s theorems, superposition, capacitor, Inductor<span lang=\\\\\\\"TH\\\\\\\">. </span>Semiconductor devices, device current<span lang=\\\\\\\"TH\\\\\\\">-</span>voltage and frequency characteristics, P<span lang=\\\\\\\"TH\\\\\\\">-</span>N junction, diode circuits, analysis and design of BJT and MOS transistor circuits, operational amplifier and its applications</span></p>",
+    "lect_or_prac": "ท",
+    "credit": "3",
+    "credit_str": "3(3-0-6)",
+    "sections": [
+        {
+            "section": "1",
+            "day": "วันจันทร์/วันอังคาร/วันพุธ",
+            "times": [
+                "09:00-12:00",
+                "09:00-12:00",
+                "13:00-16:00"
+            ],
+            "classdatetime": "<div>จ. 09:00-12:00</div><div>+ อ. 09:00-12:00</div><div>+ พ. 13:00-16:00</div>",
+            "teacher": {
+                "th": [
+                    "ผศ.ดร. อำนาจ ขาวเน"
+                ],
+                "en": [
+                    "Mr. AMNACH KHAWNE"
+                ]
+            },
+            "remark": "",
+            "classroom": "803 (ECC)",
+            "room_no": "ECC-CE803",
+            "classbuilding": "ปฏิบัติการ-2",
+            "limit": "-",
+            "queue_left": 0,
+            "count": 1
+        }
+    ]
+}
