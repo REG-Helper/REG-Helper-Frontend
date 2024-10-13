@@ -11,7 +11,9 @@ export const getCourses = async ({
   queryKey,
   pageParam,
 }: Params & { pageParam: number }) => {
-  const [, perPage] = queryKey;
+  const [, perPage, search] = queryKey;
+
+  console.log(queryKey);
 
   const response = await axiosInstance.get<PaginationResponse<Course>>(
     endpoints.courses.get({
