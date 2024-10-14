@@ -5,7 +5,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
   return (
     <>
       <Navbar />
-      <div className="mt-10">{children}</div>
+      {children}
     </>
   );
 }
