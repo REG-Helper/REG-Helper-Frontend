@@ -7,20 +7,21 @@ import Link from 'next/link';
 
 export default function CoursePage({ params }: { params: { slug: string } }) {
   return (
-    <div className="mx-auto space-y-8 px-4 md:px-8 xl:max-w-screen-xl">
-      <Link
-        href={paths.courses.root}
-        className={buttonVariants({ variant: 'outline' })}
-      >
-        กลับ
-      </Link>
-      <CourseDetail courseId={params.slug} />
+    <div className="py-12">
+      <div className="mx-auto space-y-8 px-4 md:px-8 xl:max-w-screen-xl">
+        <Link
+          href={paths.courses.root}
+          className={buttonVariants({ variant: 'outline' })}
+        >
+          กลับ
+        </Link>
+        <CourseDetail courseId={params.slug} />
+      </div>
     </div>
   );
 }
 
 // ============================== TEMP CODE ==================================
-
 
 // import React from 'react';
 // import { Navbar } from '@/modules/navbar';
