@@ -23,7 +23,7 @@ export default function GoogleCallbackPage() {
 
         setSession(credentials.accessToken);
 
-        router.push(paths.root);
+        router.push(paths.profile.root);
 
         enqueueSnackbar('เข้าสู่ระบบสำเร็จ', { variant: 'info' });
       } catch (error) {
