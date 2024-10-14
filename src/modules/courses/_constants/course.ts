@@ -18,3 +18,5 @@ export const CourseSubGroupMapper = new Map([
   [CourseSubGroup.ALT_STUDY, 'วิชาการศึกษาทางเลือก'],
   [CourseSubGroup.MAJOR_ELEC, 'วิชาเลือกเฉพาะสาขา'],
 ]);
+
+export const SET_SEARCH_TERM_DELAY = 500; // 0.5 s

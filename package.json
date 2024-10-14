@@ -24,6 +24,7 @@
     "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.438.0",
     "next": "14.2.7",
     "notistack": "^3.0.1",
@@ -39,6 +40,7 @@
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.56.1",
+    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
