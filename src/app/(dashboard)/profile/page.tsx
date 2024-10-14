@@ -1,15 +1,17 @@
-// 'use client';
-// import { useUserStore } from '@/modules/auth/_store';
-import SkillsChart from './skillchart';
-import PersonalInfo from './personinfo';
+'use client';
+
+import { useUserStore } from '@/modules/auth/_store';
+import { PersonalInfo, SkillsChart } from '@/modules/profile';
 
 export default function ProfilePage() {
-  // const student = useUserStore((state) => state.student);
+  const user = useUserStore((state) => state.user);
+
+  console.log(user);
 
   return (
-    <div className="flex items-center justify-center min-h-screen ">
-      <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl w-full">
-        <h1 className="text-3xl font-bold text-center mb-4">Student Profile</h1>
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="w-full max-w-4xl rounded-lg bg-white p-8 shadow-lg">
+        <h1 className="mb-4 text-center text-3xl font-bold">Student Profile</h1>
         <PersonalInfo />
         <SkillsChart />
       </div>

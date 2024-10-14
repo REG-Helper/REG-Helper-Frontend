@@ -12,9 +12,16 @@ import {
   Legend,
 } from 'chart.js';
 
-ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
+ChartJS.register(
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend,
+);
 
-export default function RadarChart() {
+export function SkillsChart() {
   const data = {
     labels: [
       'Qualitative Research',
@@ -49,9 +56,9 @@ export default function RadarChart() {
   };
 
   return (
-  <>
-  <h1 className="text-3xl font-bold text-center mb-4">My Skill</h1>
-  <Radar data={data} options={options} className='shadow rounded-lg'/>
-  </>
+    <>
+      <h1 className="mb-4 text-center text-3xl font-bold">My Skill</h1>
+      <Radar data={data} options={options} className="rounded-lg shadow" />
+    </>
   );
 }
