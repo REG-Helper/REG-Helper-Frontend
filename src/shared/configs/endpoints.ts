@@ -5,6 +5,7 @@ const ROOTS = {
   USERS: '/users',
   COURSES: '/courses',
   TRANSCRIPT: '/transcript',
+  USER_COURSES: '/user-courses',
 };
 
 export const endpoints = {
@@ -22,5 +23,8 @@ export const endpoints = {
   },
   transcript: {
     upload: `${ROOTS.TRANSCRIPT}/upload`,
+  },
+  userCourses: {
+    remaining: `${ROOTS.USER_COURSES}/remaining`,
   },
 };
