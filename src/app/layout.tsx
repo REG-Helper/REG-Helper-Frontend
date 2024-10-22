@@ -1,12 +1,10 @@
 import { ReactQueryProvider } from '@/shared/react-query';
 import { SnackbarProvider } from '@/shared/components/notistack';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import { Suspense } from 'react';
 import { AuthProvider } from '@/modules/auth/_context';
 import 'src/globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
+import { kanit, roboto } from '@/shared/utils/font';
 
 export const metadata: Metadata = {
   title: {
@@ -17,6 +15,7 @@ export const metadata: Metadata = {
   icons: '/next.svg',
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${roboto} ${kanit}`}>
         <Suspense>
           <SnackbarProvider>
             <ReactQueryProvider>

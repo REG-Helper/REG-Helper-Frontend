@@ -52,7 +52,7 @@ function ViewRemainingCredits() {
   return (
     <main>
       {/* --------------------------- NavBar -----------------------------------------------------*/}
-      <div className="box-border flex h-16 w-full justify-between bg-gray-200 px-8 font-sans text-base">
+      <div className="box-border flex h-16 w-full justify-between bg-gray-200 px-8 font-kanit text-base">
         <div className="box-border flex items-center space-x-8 px-8">
           <div>
             <Image src={logo} width={100} height={100} alt="Logo" />
@@ -64,7 +64,7 @@ function ViewRemainingCredits() {
       </div>
 
       {/* --------------------------- View Credit Accordion -----------------------------------------------------*/}
-      <div className="mx-16 my-8 font-sans text-2xl font-bold">
+      <div className="mx-16 my-8 font-kanit text-2xl font-bold">
         หมวดวิชาที่เหลือ
       </div>
       <ul>
@@ -74,7 +74,7 @@ function ViewRemainingCredits() {
          <div className="mx-16">
            <AccordionItem value={item.group}>
              <AccordionTrigger>
-               <div className="flex flex-col text-left">
+               <div className="flex flex-col text-left font-kanit">
                  <div className="text-base font-bold">
                    คุณเหลือวิชาหมวด{item.group} {item.credits_remained} หน่วยกิต
                  </div>
@@ -82,19 +82,19 @@ function ViewRemainingCredits() {
                </div>
              </AccordionTrigger>
              <AccordionContent>
-               <div className="font-sans text-2xl font-bold">วิชาที่แนะนำ</div>
-                 <div className="grid grid-flow-row grid-cols-12 gap-[8px] my-4 text-gray-500">
+               <div className="font-kanit text-2xl font-bold">วิชาที่แนะนำ</div>
+                 <div className="font-kanit grid grid-flow-row grid-cols-12 gap-[8px] my-4 text-gray-500">
                    <div>รหัสวิชา</div>
-                   <div className='col-start-4 col-end-8'>ชื่อวิชา</div>
+                   <div className='font-kanit col-start-4 col-end-8'>ชื่อวิชา</div>
                    <div>หน่วยกิต</div>
                  </div>
                  <div>
                    <ul>
                      {course.map((item) => (
-                      <div className='grid grid-flow-row grid-cols-12 gap-[8px]'>
-                        <div className="my-1">{item.course_id}</div>
-                        <div className="my-1 col-start-4 col-end-8">{item.course_name}</div>
-                        <div className="my-1 mx-[24px]">{item.credits}</div>
+                      <div className='grid grid-flow-rowoc grid-cols-12 gap-[8px]'>
+                        <div className="my-1 font-roboto">{item.course_id}</div>
+                        <div className="my-1 col-start-4 col-end-8 font-roboto">{item.course_name}</div>
+                        <div className="my-1 mx-[24px] font-roboto">{item.credits}</div>
                       </div>
                     ))}
                   </ul>

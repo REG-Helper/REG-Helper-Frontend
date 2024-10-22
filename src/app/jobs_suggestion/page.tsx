@@ -46,7 +46,7 @@ function JobsSuggestion() {
       {/* ------------------------------- Jobs Suggestion -------------------------- */}
       <AlertDialog>
         <AlertDialogTrigger>
-          <div className="mx-16 my-8 mb-2 me-2 box-border rounded-[8px] bg-gradient-to-br from-pink-500 to-orange-400 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl hover:text-zinc-600 focus:outline-none focus:ring-4 focus:ring-pink-200 dark:focus:ring-pink-800">
+          <div className="mx-16 my-8 mb-2 me-2 box-border rounded-[8px] bg-gradient-to-br from-pink-500 to-orange-400 px-5 py-2.5 text-center text-base font-medium font-roboto text-white hover:bg-gradient-to-bl hover:text-zinc-600 focus:outline-none focus:ring-4 focus:ring-pink-200 dark:focus:ring-pink-800">
             Jobs Suggestion
           </div>
         </AlertDialogTrigger>
@@ -54,7 +54,7 @@ function JobsSuggestion() {
           <AlertDialogHeader>
             <div className="flex justify-between">
               <AlertDialogTitle>
-                <div>อาชีพที่เหมาะกับคุณ</div>
+                <div className='font-kanit text-2xl'>อาชีพที่เหมาะกับคุณ</div>
               </AlertDialogTitle>
               <AlertDialogCancel>
                 <div>
@@ -78,13 +78,13 @@ function JobsSuggestion() {
             <AlertDialogDescription>
               <div className='flex flex-row justify-between'>
                 <div className="mx-4 mt-[32px] box-border flex h-12 w-80 flex-col items-center justify-center rounded-t-xl border-2 border-solid border-black bg-silver">
-                  <div className="text-base font-bold text-black">Rank 2</div>
+                  <div className="text-base font-bold text-black font-roboto">Rank 2</div>
                 </div>
                 <div className="mx-4 mt-[32px] box-border flex h-12 w-80 flex-col items-center justify-center rounded-t-xl border-2 border-solid border-black bg-gold">
-                  <div className="text-base font-bold text-black">Rank 1</div>
+                  <div className="text-base font-bold text-black font-roboto">Rank 1</div>
                 </div>
                 <div className="mx-4 mt-[32px] box-border flex h-12 w-80 flex-col items-center justify-center rounded-t-xl border-2 border-solid border-black bg-bronze">
-                  <div className="text-base font-bold text-black">Rank 3</div>
+                  <div className="text-base font-bold text-black font-roboto">Rank 3</div>
                 </div>
                 </div>
                 <ul className="flex flex-row justify-between">
@@ -94,75 +94,15 @@ function JobsSuggestion() {
                       <div className="my-4">
                         <Image src={item.jobs_image} height={150} alt="image" />
                       </div>
-                      <div className="text-base font-bold text-black">
+                      <div className="text-lg font-semibold text-black font-roboto">
                         {item.jobs_title}
                       </div>
-                      <div className="my-4 w-[250px] px-4 text-base font-medium text-black">
+                      <div className="my-4 w-[250px] px-4 text-base font-medium text-black font-kanit">
                         {item.description}
                       </div>
                     </div>
                   </div>
                 ))}
-                {/* <div className="mx-4 my-8 flex justify-between">
-              
-                <div>
-               
-                  <div className="mx-4 mt-16 box-border flex h-12 w-80 flex-col items-center justify-center rounded-t-xl border-2 border-solid border-black bg-silver">
-                    <div className="text-base font-bold text-black">Rank 2</div>
-                  </div>
-                 
-                  <div className="mx-4 box-border flex h-80 w-80 flex-col items-center rounded-b-xl border-2 border-solid border-black bg-white">
-                    <div className="my-4">
-                      <Image src={pentester_icon} height={150} alt="image" />
-                    </div>
-                    <div className="text-base font-bold text-black">
-                      Penetration Tester
-                    </div>
-                    <div className="my-4 w-[250px] px-4 text-base font-medium text-black">
-                      คุณได้ A ในวิชา ICT Security และ Penetration Testing
-                    </div>
-                  </div>
-                </div>
-              
-             
-                <div>
-                  
-                  <div className="mx-4 box-border flex h-12 w-80 flex-col items-center justify-center rounded-t-xl border-2 border-solid border-black bg-gold">
-                    <div className="text-base font-bold text-black">Rank 1</div>
-                  </div>
-                  
-                  <div className="mx-4 box-border flex h-80 w-80 flex-col items-center rounded-b-xl border-2 border-solid border-black bg-white">
-                    <div className="my-4">
-                      <Image src={webdev_icon} height={150} alt="image" />
-                    </div>
-                    <div className="text-base font-bold text-black">
-                      Web Developer
-                    </div>
-                    <div className="my-4 w-[250px] px-4 text-base font-medium text-black">
-                      คุณได้ A ในวิชา SoftDev และได้ D ในวิชา Digital
-                    </div>
-                  </div>
-                </div>
-               
-                <div>
-                  
-                  <div className="mx-4 mt-16 box-border flex h-12 w-80 flex-col items-center justify-center rounded-t-xl border-2 border-solid border-black bg-bronze">
-                    <div className="text-base font-bold text-black">Rank 3</div>
-                  </div>
-                 
-                  <div className="mx-4 box-border flex h-80 w-80 flex-col items-center rounded-b-xl border-2 border-solid border-black bg-white">
-                    <div className="my-4">
-                      <Image src={interpreter_icon} height={150} alt="image" />
-                    </div>
-                    <div className="text-base font-bold text-black">
-                      Interpreter
-                    </div>
-                    <div className="my-4 w-[250px] px-4 text-base font-medium text-black">
-                      คุณลงเรียนรายวิชาหมวดภาษาทั้งหมด 6 รายวิชา
-                    </div>
-                  </div>
-                </div>
-              </div> */}
               </ul>
             </AlertDialogDescription>
           </AlertDialogHeader>
