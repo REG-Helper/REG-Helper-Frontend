@@ -7,13 +7,17 @@ import { Button } from '@/shared/components/ui/button';
 import { PersonalInfoCard } from './personal-info-card';
 import { useBoolean } from '@/shared/hooks';
 import { UploadTranscriptModal } from './upload-transcript-modal';
+import { useRouter } from 'next/navigation';
+import { paths } from '@/shared/routes';
 
 export function PersonalInfo() {
   const user = useUserStore((state) => state.user);
   const loading = useUserStore((state) => state.loading);
   const openUploadTranscriptModal = useBoolean(false);
+  const router = useRouter();
+  const isAlreadyUploadedTranscript = Boolean(user?.transcript?.url);
 
-  const handleViewTranscript = () => {
+  const openTranscriptInNewTab = () => {
     window.open(user?.transcript?.url, '_blank');
   };
 
@@ -21,8 +25,12 @@ export function PersonalInfo() {
     openUploadTranscriptModal.onTrue();
   };
 
+  const navigateToCourseRemaining = () => {
+    router.push(paths.courseRemaining.root);
+  };
+
   return (
-    <div className="mx-auto flex w-full flex-col items-center justify-center gap-8 p-4 md:flex-row md:px-8 md:py-10">
+    <div className="mx-auto flex w-full flex-col items-center justify-center gap-8 p-4 md:flex-row md:px-8">
       <div className="flex w-full basis-[35%] justify-center">
         <div className="relative z-20 h-40 w-40 overflow-hidden rounded-full border-4 border-dotted border-orange-300">
           <Image
@@ -58,7 +66,12 @@ export function PersonalInfo() {
           />
         </div>
         <div className="mt-6 flex flex-col gap-4 md:flex-row">
-          <Button>ดูวิชาที่เหลือ</Button>
+          <Button
+            onClick={navigateToCourseRemaining}
+            disabled={!isAlreadyUploadedTranscript}
+          >
+            ดูวิชาที่เหลือ
+          </Button>
           <IconButton
             icon="material-symbols-light:cloud-upload"
             onClick={handleUploadTranscript}
@@ -67,7 +80,8 @@ export function PersonalInfo() {
           </IconButton>
           <IconButton
             icon="material-symbols:cloud-download"
-            onClick={handleViewTranscript}
+            onClick={openTranscriptInNewTab}
+            disabled={!isAlreadyUploadedTranscript}
           >
             ดูทรานสคริปต์
           </IconButton>
