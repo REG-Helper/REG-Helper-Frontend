@@ -14,9 +14,6 @@ export const paths = {
   suggestion: {
     root: `${PATH.SUGGESTION}`,
   },
-  about: {
-    root: `${PATH.ABOUT}`,
-  },
   profile: {
     root: `${PATH.PROFILE}`,
   },

@@ -38,10 +38,13 @@ export function NavbarProfile() {
           <Avatar className="h-full w-full">
             <AvatarImage
               src={user?.profileImage}
-              alt="@shadcn"
+              alt="@profile"
               className="absolute right-0 top-0 h-10 w-10 rounded-full"
             />
-            <AvatarFallback className="bg-red-200">SC</AvatarFallback>
+            <AvatarFallback className="flex h-full w-full items-center justify-center rounded-full">
+              {user?.firstname?.[0] || 'R'}
+              {user?.lastname?.[0] || 'H'}
+            </AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>

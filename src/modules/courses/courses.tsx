@@ -6,7 +6,6 @@ import { useInView } from 'react-intersection-observer';
 import { CourseCard } from './course-card';
 import { useCourseStore } from './_store';
 import { useDebounceValue } from '@/shared/hooks';
-import { Icon } from '@iconify/react';
 import { Loading } from './loading';
 
 export function Courses() {
