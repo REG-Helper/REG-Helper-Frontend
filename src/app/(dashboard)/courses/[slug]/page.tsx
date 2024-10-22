@@ -7,8 +7,8 @@ import Link from 'next/link';
 
 export default function CoursePage({ params }: { params: { slug: string } }) {
   return (
-    <div className="py-12">
-      <div className="mx-auto space-y-8 px-4 md:px-8 xl:max-w-screen-xl">
+    <div>
+      <div className="container mx-auto space-y-8 px-5 py-12 xl:max-w-screen-xl">
         <Link
           href={paths.courses.root}
           className={buttonVariants({ variant: 'outline' })}

@@ -5,35 +5,36 @@ import { useUserStore } from '../auth/_store';
 import { IconButton } from '@/shared/components';
 import { Button } from '@/shared/components/ui/button';
 import { PersonalInfoCard } from './personal-info-card';
-
-const profileData = {
-  name: 'Mr. Thanpisit Suriyaroj',
-  studentID: '65010461',
-  nationalID: '1100801480644',
-  dateOfBirth: 'November 18, 2003',
-  dateOfAdmission: '2022',
-  dateOfGraduation: 'N/A (สถานะ: เรียน)',
-  faculty: 'Bachelor of Engineering',
-  department: 'Computer Engineering',
-  GPA: 3.36,
-};
+import { useBoolean } from '@/shared/hooks';
+import { UploadTranscriptModal } from './upload-transcript-modal';
+import { useRouter } from 'next/navigation';
+import { paths } from '@/shared/routes';
 
 export function PersonalInfo() {
   const user = useUserStore((state) => state.user);
   const loading = useUserStore((state) => state.loading);
+  const openUploadTranscriptModal = useBoolean(false);
+  const router = useRouter();
+  const isAlreadyUploadedTranscript = Boolean(user?.transcript?.url);
 
-  const handleViewTranscript = () => {
-    // TODO: Change the URL to the transcript file
+  const openTranscriptInNewTab = () => {
+    window.open(user?.transcript?.url, '_blank');
+  };
 
-    window.open('https://www.google.com', '_blank');
+  const handleUploadTranscript = () => {
+    openUploadTranscriptModal.onTrue();
+  };
+
+  const navigateToCourseRemaining = () => {
+    router.push(paths.courseRemaining.root);
   };
 
   return (
-    <div className="mx-auto flex w-full flex-col items-center justify-center gap-8 p-4 md:flex-row md:px-8 md:py-10">
+    <div className="mx-auto flex w-full flex-col items-center justify-center gap-8 p-4 md:flex-row md:px-8">
       <div className="flex w-full basis-[35%] justify-center">
         <div className="relative z-20 h-40 w-40 overflow-hidden rounded-full border-4 border-dotted border-orange-300">
           <Image
-            src={user?.profileImage as string}
+            src={user?.profileImage || ''}
             layout="fill"
             alt="Profile Picture"
             className="object-cover"
@@ -46,45 +47,50 @@ export function PersonalInfo() {
           <PersonalInfoCard
             isLoading={loading}
             title="ชื่อ-นามสกุล"
-            content={`${user?.firstname || ''} ${user?.lastname || ''}`}
+            content={`${user?.firstname} ${user?.lastname}`}
           />
           <PersonalInfoCard
             isLoading={loading}
             title="รหัสนักศึกษา"
-            content={user?.studentId || ''}
-          />
-          <PersonalInfoCard
-            isLoading={loading}
-            title="เกรดเฉลี่ย"
-            content={profileData.GPA}
+            content={user?.studentId}
           />
           <PersonalInfoCard
             isLoading={loading}
             title="คณะ"
-            content={profileData.faculty}
+            content={user?.faculty}
           />
           <PersonalInfoCard
             isLoading={loading}
             title="สาขา"
-            content={profileData.department}
+            content={user?.department}
           />
         </div>
         <div className="mt-6 flex flex-col gap-4 md:flex-row">
-          <Button>ดูวิชาที่เหลือ</Button>
+          <Button
+            onClick={navigateToCourseRemaining}
+            disabled={!isAlreadyUploadedTranscript}
+          >
+            ดูวิชาที่เหลือ
+          </Button>
           <IconButton
             icon="material-symbols-light:cloud-upload"
-            onClick={() => {}}
+            onClick={handleUploadTranscript}
           >
             อัปโหลดทรานสคริปต์
           </IconButton>
           <IconButton
             icon="material-symbols:cloud-download"
-            onClick={handleViewTranscript}
+            onClick={openTranscriptInNewTab}
+            disabled={!isAlreadyUploadedTranscript}
           >
             ดูทรานสคริปต์
           </IconButton>
         </div>
       </div>
+      <UploadTranscriptModal
+        open={openUploadTranscriptModal.value}
+        setOpen={openUploadTranscriptModal.onToggle}
+      />
     </div>
   );
 }

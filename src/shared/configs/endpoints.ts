@@ -4,6 +4,7 @@ const ROOTS = {
   OAUTH: '/oauth',
   USERS: '/users',
   COURSES: '/courses',
+  TRANSCRIPT: '/transcript',
 };
 
 export const endpoints = {
@@ -18,5 +19,8 @@ export const endpoints = {
     get: (params: Record<string, unknown>) =>
       addParamsToUrl(`${ROOTS.COURSES}`, params),
     getById: (id: string) => `${ROOTS.COURSES}/${id}`,
+  },
+  transcript: {
+    upload: `${ROOTS.TRANSCRIPT}/upload`,
   },
 };

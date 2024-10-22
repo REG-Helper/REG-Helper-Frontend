@@ -6,8 +6,6 @@ export const useGetGoogleLoginUrl = () =>
   useMutation({
     mutationFn: getGoogleLoginUrl,
     onError: (error) => {
-      console.error(error);
-      
       enqueueSnackbar('เกิดข้อผิดพลาดในการเชื่อมต่อกับบัญชี Google', {
         variant: 'error',
       });

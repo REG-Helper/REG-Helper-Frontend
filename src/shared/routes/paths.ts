@@ -4,6 +4,7 @@ const PATH = {
   SUGGESTION: '/suggestion',
   ABOUT: '/about',
   PROFILE: '/profile',
+  COURSE_REMAINING: '/course-remaining',
 };
 
 export const paths = {
@@ -14,10 +15,10 @@ export const paths = {
   suggestion: {
     root: `${PATH.SUGGESTION}`,
   },
-  about: {
-    root: `${PATH.ABOUT}`,
-  },
   profile: {
     root: `${PATH.PROFILE}`,
+  },
+  courseRemaining: {
+    root: `${PATH.COURSE_REMAINING}`,
   },
 };
