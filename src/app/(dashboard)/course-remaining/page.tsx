@@ -1,3 +1,9 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'วิชาที่เหลือ | REG Helper',
+};
+
 export default function CourseRemainingPage() {
   return (
     <div>

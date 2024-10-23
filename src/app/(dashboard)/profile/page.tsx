@@ -2,7 +2,7 @@ import { PersonalInfo } from '@/modules/profile';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'โปรไฟล์',
+  title: 'โปรไฟล์ | REG Helper',
 };
 
 export default function ProfilePage() {

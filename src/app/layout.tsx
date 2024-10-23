@@ -11,10 +11,6 @@ const prompt = Prompt({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Reg Helper',
-    template: `%s | Reg Helper`,
-  },
   description: 'Check remaining credits: Computer Engineering',
   icons: '/next.svg',
 };
