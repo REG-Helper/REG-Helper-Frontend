@@ -35,8 +35,8 @@ export default function CourseDetail () {
             <div className="grid grid-cols-2 items-center space-y-2 mt-4">
               <div className='flex flex-col'>
                 <span className="font-medium text-gray-500">อาจารย์</span>
-                {courseData.sections.map((section) => (
-                  <p>{section.teacher.th.join(', ')}</p>
+                {courseData.sections.map((section,index) => (
+                  <p key={index}>{section.teacher.th.join(', ')}</p>
                 ))}
               </div>
               <div className='flex flex-col'>
