@@ -25,9 +25,12 @@ export const getCourses = async ({
 };
 
 export const getCourseById = async ({ queryKey }: Params) => {
-  const [, courseId] = queryKey;
+  const [, courseId, year, semester] = queryKey;
   const response = await axiosInstance.get<Course>(
-    endpoints.courses.getById(String(courseId)),
+    endpoints.courses.getById(String(courseId), {
+      year,
+      semester,
+    }),
   );
 
   return response.data;

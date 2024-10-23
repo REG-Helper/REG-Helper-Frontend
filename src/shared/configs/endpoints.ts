@@ -20,7 +20,8 @@ export const endpoints = {
   courses: {
     get: (params: Record<string, unknown>) =>
       addParamsToUrl(`${ROOTS.COURSES}`, params),
-    getById: (id: string) => `${ROOTS.COURSES}/${id}`,
+    getById: (id: string, params: Record<string, unknown>) =>
+      addParamsToUrl(`${ROOTS.COURSES}/${id}`, params),
   },
   transcript: {
     upload: `${ROOTS.TRANSCRIPT}/upload`,
