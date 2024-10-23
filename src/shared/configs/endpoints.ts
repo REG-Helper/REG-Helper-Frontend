@@ -6,6 +6,7 @@ const ROOTS = {
   COURSES: '/courses',
   TRANSCRIPT: '/transcript',
   USER_COURSES: '/user-courses',
+  SECTIONS: '/sections',
 };
 
 export const endpoints = {
@@ -26,5 +27,8 @@ export const endpoints = {
   },
   userCourses: {
     remaining: `${ROOTS.USER_COURSES}/remaining`,
+  },
+  sections: {
+    yearsAndSemesters: `${ROOTS.SECTIONS}/years-semesters`,
   },
 };
