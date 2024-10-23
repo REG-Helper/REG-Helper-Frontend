@@ -1,3 +1,4 @@
+import { UserCourseRemaining } from '@/modules/user-courses';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export default function CourseRemainingPage() {
     <div>
       <div className="container mx-auto px-5 py-12 xl:max-w-screen-xl">
         <h1 className="text-3xl font-semibold">วิชาที่เหลือ</h1>
+        <UserCourseRemaining />
       </div>
     </div>
   );
