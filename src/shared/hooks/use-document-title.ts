@@ -16,18 +16,15 @@ export function useDocumentTitle(
   const defaultTitle = useRef<string | null>(null);
 
   useIsomorphicLayoutEffect(() => {
-    console.log('window.document.title', window.document.title);
     defaultTitle.current = window.document.title;
   }, []);
 
   useIsomorphicLayoutEffect(() => {
-    console.log('title', title);
     window.document.title = title;
   }, [title]);
 
   useUnmount(() => {
     if (!preserveTitleOnUnmount && defaultTitle.current) {
-      console.log(preserveTitleOnUnmount, defaultTitle.current);
       window.document.title = defaultTitle.current;
     }
   });
