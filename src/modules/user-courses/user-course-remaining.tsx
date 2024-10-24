@@ -8,6 +8,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/shared/components/ui/accordion';
+import Link from 'next/link';
+import { paths } from '@/shared/routes';
 
 export function UserCourseRemaining() {
   const { data, isLoading } = useGetRemainingCourse();
@@ -22,16 +24,49 @@ export function UserCourseRemaining() {
         .filter(([key]) => (data?.[key]?.remainingCredits || 0) > 0)
         .map(([key, label], index) => {
           const remainingCourses = data?.[key];
+          const fixedCoursesList = data?.[key].courses.fixedCourses;
           return (
             <AccordionItem value={key} key={index}>
               <AccordionTrigger>
-                <div>
-                  {label} {remainingCourses?.remainingCredits || 0} /{' '}
-                  {remainingCourses?.requiredCredits || 0} credits remaining
+                <div className="flex flex-col text-left">
+                  <div className="text-xl">
+                    {label} {remainingCourses?.remainingCredits || 0} หน่วยกิต
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    หลักสูตรต้องการ {remainingCourses?.requiredCredits || 0}{' '}
+                    หน่วยกิต
+                  </div>
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+                <div className="text-xl font-medium">
+                  คุณต้องลงเรียนวิชาดังต่อไปนี้
+                </div>
+                <div className="my-4 grid grid-flow-row grid-cols-12 gap-2 text-gray-500">
+                  <div>รหัสวิชา</div>
+                  <div className="col-start-4 col-end-10">ชื่อวิชา</div>
+                  <div>หน่วยกิต</div>
+                </div>
+                <ul>
+                  {fixedCoursesList?.map((course) => (
+                    <li
+                      key={course.id}
+                      className="grid grid-flow-row grid-cols-12 gap-2"
+                    >
+                      <div className="my-1">{course.id}</div>
+                      <div className="col-start-4 col-end-10 my-1 hover:underline">
+                        <Link href={`${paths.courses.root}/${course.id}`}>
+                          {course.nameEn}
+                        </Link>
+                      </div>
+                      <div className="mx-6 my-1">{course.credit}</div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-4 text-xl font-medium">
+                  และคุณต้องลงวิชาในหมวดหมู่นี้เพิ่มอีก{' '}
+                  {remainingCourses?.courses.electiveCourses || 0} หน่วยกิต
+                </div>
               </AccordionContent>
             </AccordionItem>
           );
