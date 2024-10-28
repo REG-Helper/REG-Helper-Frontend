@@ -1,6 +1,6 @@
-// 'use client' directive to ensure this is treated as a client-side component
 'use client';
 
+import { memo, useMemo } from 'react';
 import { Radar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -11,6 +11,8 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { useGetSkills } from './_hooks/use-get-skills';
+import { Skeleton } from '@/shared/components/ui/skeleton';
 
 ChartJS.register(
   RadialLinearScale,
@@ -21,44 +23,59 @@ ChartJS.register(
   Legend,
 );
 
-export function SkillsChart() {
-  const data = {
-    labels: [
-      'Qualitative Research',
-      'Workshop Facilitation',
-      'Interaction Design',
-      'Visual Design',
-      'Design Strategy',
-      'Quantitative Research',
-    ],
-    datasets: [
-      {
-        label: 'Skills Assessment',
-        data: [40, 30, 40, 20, 40, 30],
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 2,
-        pointBackgroundColor: 'rgba(75, 192, 192, 1)',
-      },
-    ],
-  };
-
-  const options = {
-    scales: {
-      r: {
-        suggestedMin: 0,
-        suggestedMax: 50,
-        ticks: {
-          stepSize: 10,
-        },
-      },
+const options = {
+  scales: {
+    r: {
+      suggestedMin: 0,
+      suggestedMax: 50,
+      ticks: { stepSize: 10 },
     },
-  };
+  },
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
+  responsive: true,
+};
+
+export const SkillsChart = memo(function SkillsChartComponent() {
+  const { data: skills, isLoading } = useGetSkills();
+
+  const labels = useMemo(
+    () => skills?.map((skill) => skill.nameEn) ?? [],
+    [skills],
+  );
+  const skillData = useMemo(
+    () => skills?.map((skill) => skill.weight) ?? [],
+    [skills],
+  );
+
+  const data = useMemo(
+    () => ({
+      labels,
+      datasets: [
+        {
+          label: 'ทักษะ',
+          data: skillData,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 2,
+          pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+        },
+      ],
+    }),
+    [labels, skillData],
+  );
 
   return (
-    <>
-      <h1 className="mb-4 text-center text-3xl font-bold">My Skill</h1>
-      <Radar data={data} options={options} className="rounded-lg shadow" />
-    </>
+    <div className="mx-auto mt-8 max-w-xl text-center">
+      <h1 className="text-3xl font-bold">ทักษะ</h1>
+      {isLoading ? (
+        <Skeleton className="mx-auto mt-4 aspect-square w-full max-w-xl" />
+      ) : (
+        <Radar data={data} options={options} />
+      )}
+    </div>
   );
-}
+});

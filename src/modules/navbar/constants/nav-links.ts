@@ -11,9 +11,4 @@ export const NAV_LINKS = [
     title: 'แนะนำวิชาเรียน',
     path: paths.suggestion.root,
   },
-  {
-    id: 3,
-    title: 'เกี่ยวกับเรา',
-    path: paths.about.root,
-  },
 ];

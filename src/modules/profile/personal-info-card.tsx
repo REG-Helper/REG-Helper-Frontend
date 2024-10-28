@@ -2,7 +2,7 @@ import { Skeleton } from '@/shared/components/ui/skeleton';
 
 type Props = {
   title: string;
-  content: string | number | null;
+  content: string | undefined;
   isLoading: boolean;
 };
 

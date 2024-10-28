@@ -4,6 +4,9 @@ const ROOTS = {
   OAUTH: '/oauth',
   USERS: '/users',
   COURSES: '/courses',
+  TRANSCRIPT: '/transcript',
+  USER_COURSES: '/user-courses',
+  SECTIONS: '/sections',
 };
 
 export const endpoints = {
@@ -17,6 +20,17 @@ export const endpoints = {
   courses: {
     get: (params: Record<string, unknown>) =>
       addParamsToUrl(`${ROOTS.COURSES}`, params),
-    getById: (id: string) => `${ROOTS.COURSES}/${id}`,
+    getById: (id: string, params: Record<string, unknown>) =>
+      addParamsToUrl(`${ROOTS.COURSES}/${id}`, params),
+  },
+  transcript: {
+    upload: `${ROOTS.TRANSCRIPT}/upload`,
+  },
+  userCourses: {
+    remaining: `${ROOTS.USER_COURSES}/remaining`,
+    skills: `${ROOTS.USER_COURSES}/skills`,
+  },
+  sections: {
+    yearsAndSemesters: `${ROOTS.SECTIONS}/years-semesters`,
   },
 };

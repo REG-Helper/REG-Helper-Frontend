@@ -24,7 +24,7 @@ export function AuthGuard({ children }: PropsWithChildren) {
     } else {
       checking.onFalse();
     }
-  }, [loading, user, router]);
+  }, [loading, user, router, checking]);
 
   useEffect(() => {
     validateAuthentication();
@@ -52,7 +52,7 @@ export function AlreadyAuthenticatedGuard({ children }: PropsWithChildren) {
     } else {
       checking.onFalse();
     }
-  }, [loading, user, router]);
+  }, [loading, user, router, checking]);
 
   useEffect(() => {
     checkAlreadyAuthenticated();

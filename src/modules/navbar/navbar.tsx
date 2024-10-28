@@ -14,7 +14,7 @@ export function Navbar() {
   const user = useUserStore((state) => state.user);
   return (
     <nav className="sticky right-0 top-0 z-50 w-full bg-white shadow-lg">
-      <div className="mx-auto flex items-center container justify-between px-4 py-5 md:px-8 xl:max-w-screen-xl">
+      <div className="container mx-auto flex items-center justify-between px-6 py-5 xl:max-w-screen-xl">
         <div className="flex items-center">
           <div className="mr-8">
             <Link href={paths.root}>
