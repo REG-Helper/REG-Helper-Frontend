@@ -30,11 +30,12 @@ export function SkillsChart() {
       'Visual Design',
       'Design Strategy',
       'Quantitative Research',
+      'Backend Developer',
     ],
     datasets: [
       {
         label: 'Skills Assessment',
-        data: [40, 30, 40, 20, 40, 30],
+        data: [40, 30, 40, 20, 40, 30, 60],
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 2,

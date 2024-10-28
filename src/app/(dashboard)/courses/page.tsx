@@ -2,12 +2,15 @@
 
 import { Courses, SearchCourse, SelectYearsSemesters } from '@/modules/courses';
 import { useCourseStore } from '@/modules/courses/_store';
-import { useDocumentTitle } from '@/shared/hooks';
+import { CourseFilter } from '@/modules/courses/course-filter';
+import { Button } from '@/shared/components/ui/button';
+import { useBoolean, useDocumentTitle } from '@/shared/hooks';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function CoursesPage() {
   const searchParams = useSearchParams();
+  const openFilter = useBoolean(true);
   const { setCurrentTerm } = useCourseStore((state) => state.actions);
 
   useDocumentTitle('ค้นหาวิชาเรียน | Reg Helper', {
@@ -30,9 +33,23 @@ export default function CoursesPage() {
           <SelectYearsSemesters />
         </div>
 
-        <SearchCourse />
+        <div>
+          <SearchCourse />
+          <Button onClick={openFilter.onToggle}>Setting</Button>
+        </div>
 
-        <Courses />
+        <div className="flex">
+          <div
+            className={`w-full ${openFilter.value ? 'basis-[80%]' : 'basis-full'}`}
+          >
+            <Courses />
+          </div>
+          {openFilter.value && (
+            <div className="basis-[20%]">
+              <CourseFilter />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -19,4 +19,39 @@ export const CourseSubGroupMapper = new Map([
   [CourseSubGroup.MAJOR_ELEC, 'วิชาเลือกเฉพาะสาขา'],
 ]);
 
+export const CourseWithSubGroupMapper = new Map([
+  [
+    CourseGroup.FREE_ELEC,
+    {
+      courseName: 'วิชาเลือกเสรี',
+      subCourses: new Map([[CourseSubGroup.FREE_ELEC, 'วิชาเลือกเสรี']]),
+    },
+  ],
+  [
+    CourseGroup.GENED,
+    {
+      courseName: 'วิชาศึกษาทั่วไป',
+      subCourses: new Map([
+        [CourseSubGroup.FUND, 'วิชาพื้นฐาน'],
+        [CourseSubGroup.LANG, 'วิชาด้านภาษาและการสื่อสาร'],
+        [CourseSubGroup.FAC_SPEC, 'วิชาตามเกณฑ์ของคณะ'],
+        [CourseSubGroup.GENED_ELEC, 'วิชาเลือก'],
+      ]),
+    },
+  ],
+  [
+    CourseGroup.SPEC,
+    {
+      courseName: 'วิชาเฉพาะ',
+      subCourses: new Map([
+        [CourseSubGroup.CORE, 'วิชาแกน'],
+        [CourseSubGroup.REQUIRED, 'วิชาบังคับเฉพาะด้าน'],
+        [CourseSubGroup.ELEC_REQ, 'วิชาบังคับเลือก'],
+        [CourseSubGroup.ALT_STUDY, 'วิชาการศึกษาทางเลือก'],
+        [CourseSubGroup.MAJOR_ELEC, 'วิชาเลือกเฉพาะสาขา'],
+      ]),
+    },
+  ],
+]);
+
 export const SET_SEARCH_TERM_DELAY = 500; // 0.5 s
