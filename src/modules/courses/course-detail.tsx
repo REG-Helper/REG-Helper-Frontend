@@ -4,8 +4,6 @@ import type { Section } from './_types';
 
 type Props = {
   courseId: string;
-  year: string;
-  semester: string;
 };
 
 const dayAbbreviations = {
@@ -23,14 +21,11 @@ function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-export function CourseDetail({ courseId, year, semester }: Props) {
-  const {
-    data: course,
-    isLoading,
-    isError,
-  } = useGetCourse(courseId, year, semester);
+export function CourseDetail({ courseId }: Props) {
+  const { data: course, isLoading, isError } = useGetCourse(courseId);
   useDocumentTitle(String(`${course?.nameEn} | Reg Helper`));
   if (isLoading) return <div>Loading</div>;
+
   if (isError) return <div>Course Not Found</div>;
 
   return (
