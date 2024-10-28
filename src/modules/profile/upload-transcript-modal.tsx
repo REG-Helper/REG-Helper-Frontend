@@ -48,6 +48,11 @@ export function UploadTranscriptModal({ open, setOpen }: Props) {
     resolver: zodResolver(uploadSchema),
   });
   const { mutateAsync: uploadTranscript } = useUploadTranscript();
+  const {
+    formState: { isSubmitting },
+    watch,
+  } = methods;
+  const file = watch('file');
 
   const handleSubmit = async (data: FieldValues) => {
     try {
@@ -84,7 +89,12 @@ export function UploadTranscriptModal({ open, setOpen }: Props) {
         <Form methods={methods} onSubmit={handleSubmit}>
           <RHFFileUpload name="file" />
           <div className="mt-4 flex justify-end">
-            <Button type="submit">ยืนยัน</Button>
+            <Button
+              type="submit"
+              disabled={!(file?.length > 0) || isSubmitting}
+            >
+              ยืนยัน
+            </Button>
           </div>
         </Form>
       </DialogContent>

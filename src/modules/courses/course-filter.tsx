@@ -18,7 +18,6 @@ export function CourseFilter() {
       newSelectedCourses.add(key);
     }
     setSelectedCourses(newSelectedCourses);
-    console.log(selectedCourses);
   };
 
   const handleDayChange = (key: string) => {
@@ -29,8 +28,6 @@ export function CourseFilter() {
       newSelectedDays.add(key);
     }
     setSelectedDays(newSelectedDays);
-
-    console.log(selectedDays);
   };
   return (
     <div>

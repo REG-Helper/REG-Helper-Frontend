@@ -25,6 +25,7 @@ export const endpoints = {
   },
   transcript: {
     upload: `${ROOTS.TRANSCRIPT}/upload`,
+    verify: `${ROOTS.TRANSCRIPT}/verify`,
   },
   userCourses: {
     remaining: `${ROOTS.USER_COURSES}/remaining`,
