@@ -2,13 +2,15 @@
 
 import { Icon } from '@iconify/react';
 import { useCallback, useEffect, useState } from 'react';
-import type { Accept } from 'react-dropzone';
 import { useDropzone } from 'react-dropzone';
 import Image from 'next/image';
 import { cn } from '@/shared/utils';
 import { fromByteToMB } from './utils';
-import type { FieldError} from 'react-hook-form';
+import type { FieldError } from 'react-hook-form';
 import { useFormContext } from 'react-hook-form';
+import { useVerifyTranscript } from '@/modules/profile/_hooks';
+import { useBoolean } from '@/shared/hooks';
+import { Alert, AlertDescription, AlertTitle } from '../ui/alert';
 
 type UploadedCardProps = {
   file: File;
@@ -27,7 +29,9 @@ function UploadedCard({ file, removeFile }: UploadedCardProps) {
 
       return () => URL.revokeObjectURL(url);
     }
-  }, [file]);
+
+    setPreviewUrl(null);
+  }, [file, isImage]);
 
   return (
     <div className="flex h-fit items-center justify-between rounded-md bg-white p-4 shadow-md transition-shadow duration-200 hover:shadow-lg">
@@ -60,64 +64,112 @@ function UploadedCard({ file, removeFile }: UploadedCardProps) {
 }
 
 // ======================================================================================================
+type AlertMissingCourseProps = {
+  missingCourses: string[];
+};
+
+function AlertMissingCourse({ missingCourses }: AlertMissingCourseProps) {
+  return (
+    <Alert variant="warning">
+      <Icon icon="si:warning-fill" className="text-xl" />
+      <AlertTitle>
+        พบ {missingCourses.length} วิชาที่ไม่มีในฐานข้อมูล ได้แก่{' '}
+        <span>
+          {missingCourses.map((missingCourse, index) => (
+            <span key={index}>{missingCourse}</span>
+          ))}
+        </span>
+      </AlertTitle>
+      <AlertDescription>
+        หมายเหตุ: วิชาที่ไม่มีในฐานข้อมูลจะถูกนับเป็นวิชาในหมวดวิชาเลือกเสรี
+        จำนวน 3 หน่วยกิต
+      </AlertDescription>
+    </Alert>
+  );
+}
+
+// ======================================================================================================
 
 type Props = {
-  multipleFile?: boolean;
-  maxFiles?: number;
-  acceptFile?: Accept;
   name: string;
 };
 
-export function RHFFileUpload({
-  maxFiles = 1,
-  multipleFile = false,
-  acceptFile = {
-    'application/pdf': ['.pdf'],
-    'image/*': ['.png', '.jpg', '.jpeg', '.gif'],
-  },
-  name,
-}: Props) {
+export function RHFFileUpload({ name }: Props) {
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+  const [missingCourses, setMissingCourses] = useState<string[]>([]);
+  const isUploading = useBoolean(false);
   const {
     setValue,
+    setError,
+    clearErrors,
     formState: { errors },
   } = useFormContext();
+  const { mutateAsync: verifyTranscript } = useVerifyTranscript();
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
-    setUploadedFiles((prev) => {
-      const newFiles = acceptedFiles.filter(
-        (file) =>
-          !prev.some(
-            (prevFile) =>
-              prevFile.name === file.name &&
-              prevFile.size === file.size &&
-              prevFile.lastModified === file.lastModified,
-          ),
-      );
+  const uploadAndVerifyFiles = useCallback(
+    async (files: File[]) => {
+      const formData = new FormData();
+      files.forEach((file) => formData.append('file', file));
 
-      const updatedFiles = multipleFile ? [...prev, ...newFiles] : newFiles;
+      try {
+        isUploading.onTrue();
+        const response = await verifyTranscript(formData);
+        setMissingCourses(response.missingCourses);
 
-      setValue(name, updatedFiles);
+        setUploadedFiles([...files]);
 
-      return updatedFiles;
-    });
-  }, []);
+        setValue(name, files);
+      } catch (error) {
+        setError(name, {
+          type: 'manual',
+          message: 'ไม่สามารถอัปโหลดไฟล์ เนื่องจาก format ของไฟล์ไม่ถูกต้อง',
+        });
+        setMissingCourses([]);
+      } finally {
+        isUploading.onFalse();
+      }
+    },
+    [name, setError, setValue, verifyTranscript],
+  );
 
-  const removeFile = useCallback((index: number) => {
-    setUploadedFiles((prev) => {
-      const updatedFiles = prev.filter((_, i) => i !== index);
+  const onDrop = useCallback(
+    (acceptedFiles: File[]) => {
+      setUploadedFiles([]);
 
-      setValue(name, updatedFiles);
+      if (errors[name]) {
+        clearErrors(name);
+      }
 
-      return updatedFiles;
-    });
-  }, []);
+      setMissingCourses([]);
+
+      uploadAndVerifyFiles(acceptedFiles);
+    },
+    [clearErrors, errors, name, uploadAndVerifyFiles],
+  );
+
+  const removeFile = useCallback(
+    (index: number) => {
+      setUploadedFiles((prev) => {
+        const updatedFiles = prev.filter((_, i) => i !== index);
+
+        return updatedFiles;
+      });
+
+      setValue(name, uploadedFiles);
+
+      clearErrors();
+      setMissingCourses([]);
+    },
+    [clearErrors, name, setValue],
+  );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    multiple: multipleFile,
-    maxFiles: maxFiles,
-    accept: acceptFile,
+    maxFiles: 1,
+    multiple: false,
+    accept: {
+      'application/pdf': ['.pdf'],
+    },
   });
 
   return (
@@ -125,7 +177,7 @@ export function RHFFileUpload({
       <div
         {...getRootProps()}
         className={cn(
-          'flex items-center justify-center rounded-lg border-2 border-dashed p-6 transition-all duration-300',
+          'flex h-40 items-center justify-center rounded-lg border-2 border-dashed p-6 transition-all duration-300',
           {
             'border-blue-500 bg-blue-50': isDragActive,
             'border-gray-300 bg-gray-100': !isDragActive,
@@ -133,9 +185,15 @@ export function RHFFileUpload({
         )}
       >
         <input {...getInputProps()} />
-        {isDragActive ? (
+        {isUploading.value ? (
+          <p className="text-blue-600">Uploading your files...</p>
+        ) : null}
+
+        {!isUploading.value && isDragActive && (
           <p className="text-blue-600">Drop the files here...</p>
-        ) : (
+        )}
+
+        {!isUploading.value && !isDragActive && (
           <div className="flex flex-col items-center gap-4">
             <Icon
               icon="material-symbols:upload"
@@ -167,6 +225,10 @@ export function RHFFileUpload({
             />
           ))}
         </div>
+      )}
+
+      {missingCourses.length > 0 && (
+        <AlertMissingCourse missingCourses={missingCourses} />
       )}
     </div>
   );
