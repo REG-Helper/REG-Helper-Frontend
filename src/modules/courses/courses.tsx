@@ -21,7 +21,7 @@ export function Courses() {
     refetch,
   } = useGetCourses({
     perPage: 20,
-    id: searchTerm,
+    search: searchTerm,
   });
 
   const courses = useMemo(
