@@ -42,7 +42,7 @@ export function UserCourseRemaining() {
               <AccordionContent>
                 {remainingCourses?.courses?.fixedCourses.length ? (
                   <div>
-                    <div className="text-xl font-medium">
+                    <div className="text-lg font-medium">
                       คุณต้องลงเรียนวิชาดังต่อไปนี้
                     </div>
                     <div className="my-4 grid grid-flow-row grid-cols-12 gap-2 text-gray-500">
@@ -70,10 +70,10 @@ export function UserCourseRemaining() {
                 ) : undefined}
 
                 {remainingCourses?.courses.electiveCredits ? (
-                  <div className="mt-4 text-xl font-medium">
+                  <div className=" text-lg font-medium">
                     <span
                       className={cn({
-                        hidden: !remainingCourses?.courses?.fixedCourses.length,
+                        'hidden mt-4': !remainingCourses?.courses?.fixedCourses.length,
                       })}
                     >
                       และ
