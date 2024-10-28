@@ -5,7 +5,9 @@ export const addParamsToUrl = (
   const searchParams = new URLSearchParams();
 
   Object.entries(params).forEach(([param, value]) => {
-    searchParams.append(param, String(value));
+    if (value) {
+      searchParams.append(param, String(value));
+    }
   });
 
   return `${url}?${searchParams.toString()}`;

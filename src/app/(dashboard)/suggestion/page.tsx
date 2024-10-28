@@ -1,3 +1,5 @@
+import { SearchByJob } from '@/modules/suggestion-course';
+import { Courses } from '@/modules/suggestion-course';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -11,6 +13,8 @@ export default function SuggestionPage() {
         <h1 className="text-3xl font-semibold">
           แนะนำวิชาที่ใช่ จากอาชีพที่ชอบ
         </h1>
+        <SearchByJob />
+        <Courses />
       </div>
     </div>
   );
