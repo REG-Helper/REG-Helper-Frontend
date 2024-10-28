@@ -1,6 +1,9 @@
+'use client';
+
 import { useDocumentTitle } from '@/shared/hooks';
 import { useGetCourse } from './_hooks';
 import type { Section } from './_types';
+import { useCourseStore } from './_store';
 
 type Props = {
   courseId: string;
@@ -22,9 +25,9 @@ function capitalize(str: string): string {
 }
 
 export function CourseDetail({ courseId }: Props) {
-  const { data: course, isLoading, isError } = useGetCourse(courseId);
+  const currentTerm = useCourseStore((state) => state.currentTerm);
+  const { data: course, isError } = useGetCourse(courseId);
   useDocumentTitle(String(`${course?.nameEn} | Reg Helper`));
-  if (isLoading) return <div>Loading</div>;
 
   if (isError) return <div>Course Not Found</div>;
 
@@ -54,7 +57,9 @@ export function CourseDetail({ courseId }: Props) {
         <p>{course?.descriptionEn} </p>
       </div>
 
-      <h2 className="mt-4 pb-4 font-semibold text-blue-900">วันที่เปิดสอน</h2>
+      <h2 className="mt-4 pb-4 font-semibold text-blue-900">
+        วันที่เปิดสอน ({currentTerm})
+      </h2>
       {course?.sections && course.sections.length > 0 ? (
         <div className="overflow-auto whitespace-nowrap">
           <table className="min-w-full border-collapse overflow-y-auto border border-gray-300">
