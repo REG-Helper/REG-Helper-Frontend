@@ -13,7 +13,7 @@ export type Course = {
   sections: Section[];
 };
 
-type Section = {
+export type Section = {
   id: string;
   name: string;
   day: string;
@@ -31,7 +31,7 @@ type Section = {
   teachers: Teacher[];
 };
 
-type Teacher = {
+export type Teacher = {
   id: string;
   firstnameEn: string;
   lastnameEn: string;
