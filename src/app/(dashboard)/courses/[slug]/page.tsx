@@ -30,6 +30,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
           กลับ
         </Link>
         <CourseDetail courseId={params.slug} />
+        
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import {
 } from '@/shared/components/ui/accordion';
 import Link from 'next/link';
 import { paths } from '@/shared/routes';
+import { cn } from '@/shared/utils';
 
 export function UserCourseRemaining() {
   const { data, isLoading } = useGetRemainingCourse();
@@ -39,34 +40,48 @@ export function UserCourseRemaining() {
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                <div className="text-xl font-medium">
-                  คุณต้องลงเรียนวิชาดังต่อไปนี้
-                </div>
-                <div className="my-4 grid grid-flow-row grid-cols-12 gap-2 text-gray-500">
-                  <div>รหัสวิชา</div>
-                  <div className="col-start-4 col-end-10">ชื่อวิชา</div>
-                  <div>หน่วยกิต</div>
-                </div>
-                <ul>
-                  {fixedCoursesList?.map((course) => (
-                    <li
-                      key={course.id}
-                      className="grid grid-flow-row grid-cols-12 gap-2"
+                {remainingCourses?.courses?.fixedCourses.length ? (
+                  <div>
+                    <div className="text-xl font-medium">
+                      คุณต้องลงเรียนวิชาดังต่อไปนี้
+                    </div>
+                    <div className="my-4 grid grid-flow-row grid-cols-12 gap-2 text-gray-500">
+                      <div>รหัสวิชา</div>
+                      <div className="col-start-4 col-end-10">ชื่อวิชา</div>
+                      <div>หน่วยกิต</div>
+                    </div>
+                    <ul>
+                      {fixedCoursesList?.map((course) => (
+                        <li
+                          key={course.id}
+                          className="grid grid-flow-row grid-cols-12 gap-2"
+                        >
+                          <div className="my-1">{course.id}</div>
+                          <div className="col-start-4 col-end-10 my-1 hover:underline">
+                            <Link href={`${paths.courses.root}/${course.id}`}>
+                              {course.nameEn}
+                            </Link>
+                          </div>
+                          <div className="mx-6 my-1">{course.credit}</div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : undefined}
+
+                {remainingCourses?.courses.electiveCredits ? (
+                  <div className="mt-4 text-xl font-medium">
+                    <span
+                      className={cn({
+                        hidden: !remainingCourses?.courses?.fixedCourses.length,
+                      })}
                     >
-                      <div className="my-1">{course.id}</div>
-                      <div className="col-start-4 col-end-10 my-1 hover:underline">
-                        <Link href={`${paths.courses.root}/${course.id}`}>
-                          {course.nameEn}
-                        </Link>
-                      </div>
-                      <div className="mx-6 my-1">{course.credit}</div>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-4 text-xl font-medium">
-                  และคุณต้องลงวิชาในหมวดหมู่นี้เพิ่มอีก{' '}
-                  {remainingCourses?.courses.electiveCourses || 0} หน่วยกิต
-                </div>
+                      และ
+                    </span>
+                    คุณต้องลงวิชาในหมวดหมู่นี้เพิ่มอีก{' '}
+                    {remainingCourses?.courses.electiveCredits || 0} หน่วยกิต
+                  </div>
+                ) : undefined}
               </AccordionContent>
             </AccordionItem>
           );

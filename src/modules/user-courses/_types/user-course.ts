@@ -2,7 +2,7 @@ import type { Course } from '@/modules/courses/_types';
 
 type CourseGroup = {
   fixedCourses: Course[];
-  electiveCourses: number;
+  electiveCredits: number;
 };
 
 type RemainingCourses = {
