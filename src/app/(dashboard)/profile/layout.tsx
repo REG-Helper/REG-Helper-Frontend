@@ -1,7 +1,6 @@
-// import { AuthGuard } from '@/modules/auth/_guards';
+import { AuthGuard } from '@/modules/auth/_guards';
 import type { PropsWithChildren } from 'react';
 
 export default function ProfileLayout({ children }: PropsWithChildren) {
-  // return <AuthGuard>{children}</AuthGuard>;
-  return <div>{children}</div>;
+  return <AuthGuard>{children}</AuthGuard>;
 }
