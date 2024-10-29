@@ -3,3 +3,13 @@ export type GetSkillsResponse = {
   nameTh: string;
   weight: number;
 };
+
+export type TopJob = {
+  nameTh: string;
+  nameEn: string;
+  relevancyScore: number;
+};
+
+export type GetTopJobsResponse = {
+  topJobs: TopJob[];
+};

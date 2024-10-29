@@ -35,9 +35,9 @@ export function PersonalInfo() {
         <div className="relative z-20 h-40 w-40 overflow-hidden rounded-full border-4 border-dotted border-orange-300">
           <Image
             src={user?.profileImage || ''}
-            layout="fill"
             alt="Profile Picture"
             className="object-cover"
+            fill
           />
         </div>
       </div>

@@ -31,6 +31,7 @@ export const endpoints = {
   userCourses: {
     remaining: `${ROOTS.USER_COURSES}/remaining`,
     skills: `${ROOTS.USER_COURSES}/skills`,
+    topJobs: `${ROOTS.USER_COURSES}/top-jobs`,
   },
   sections: {
     yearsAndSemesters: `${ROOTS.SECTIONS}/years-semesters`,

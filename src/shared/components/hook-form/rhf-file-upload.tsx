@@ -64,6 +64,7 @@ function UploadedCard({ file, removeFile }: UploadedCardProps) {
 }
 
 // ======================================================================================================
+
 type AlertMissingCourseProps = {
   missingCourses: string[];
 };

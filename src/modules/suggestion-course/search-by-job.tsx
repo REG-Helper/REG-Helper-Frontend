@@ -2,7 +2,7 @@
 
 import { AutoComplete } from '@/shared/components';
 import { useGetJobs } from './_hooks';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useSuggestionStore } from './_store';
 
 export function SearchByJob() {

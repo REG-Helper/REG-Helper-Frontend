@@ -1,4 +1,8 @@
-import { PersonalInfo, SkillsChart } from '@/modules/profile';
+import {
+  JobsSuggestionModal,
+  PersonalInfo,
+  SkillsChart,
+} from '@/modules/profile';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -13,6 +17,7 @@ export default function ProfilePage() {
           <h1 className="mb-4 text-center text-3xl font-bold">ข้อมูลส่วนตัว</h1>
           <PersonalInfo />
           <SkillsChart />
+          <JobsSuggestionModal />
         </div>
       </div>
     </div>
