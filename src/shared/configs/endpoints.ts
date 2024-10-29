@@ -7,6 +7,7 @@ const ROOTS = {
   TRANSCRIPT: '/transcript',
   USER_COURSES: '/user-courses',
   SECTIONS: '/sections',
+  JOBS: '/jobs',
 };
 
 export const endpoints = {
@@ -25,12 +26,17 @@ export const endpoints = {
   },
   transcript: {
     upload: `${ROOTS.TRANSCRIPT}/upload`,
+    verify: `${ROOTS.TRANSCRIPT}/verify`,
   },
   userCourses: {
     remaining: `${ROOTS.USER_COURSES}/remaining`,
     skills: `${ROOTS.USER_COURSES}/skills`,
+    topJobs: `${ROOTS.USER_COURSES}/top-jobs`,
   },
   sections: {
     yearsAndSemesters: `${ROOTS.SECTIONS}/years-semesters`,
+  },
+  jobs: {
+    get: `${ROOTS.JOBS}`,
   },
 };

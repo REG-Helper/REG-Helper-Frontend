@@ -11,7 +11,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { useGetSkills } from './_hooks/use-get-skills';
+import { useGetSkills } from './_hooks';
 import { Skeleton } from '@/shared/components/ui/skeleton';
 
 ChartJS.register(

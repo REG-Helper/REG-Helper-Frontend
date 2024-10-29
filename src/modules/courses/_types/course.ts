@@ -42,8 +42,7 @@ export type Teacher = {
 export type GetCoursesQuery = {
   page?: number;
   perPage?: number;
-  id?: string;
-  name?: string;
+  search?: string;
   day?: DayOfWeek;
   group?: CourseGroup;
   subGroup?: CourseSubGroup;
@@ -51,4 +50,5 @@ export type GetCoursesQuery = {
   endAt?: string;
   year?: number;
   semester?: number;
+  job?: string;
 };
