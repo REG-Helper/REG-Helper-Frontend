@@ -20,7 +20,7 @@ export function CourseCard({ id, credit, group, nameEn, subGroup }: Props) {
   return (
     <div className="rounded-md border p-5 sm:p-8">
       <div>
-        <h2 className="text-deep-blue text-lg font-semibold md:text-xl">
+        <h2 className="text-deep-blue-dark text-lg font-semibold md:text-xl">
           <Link
             className="hover:underline"
             href={paths.courses.detail(id, { term: currentTerm })}
