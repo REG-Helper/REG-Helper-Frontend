@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { useSuggestionStore } from './_store';
 import { useGetCourses } from '../courses/_hooks';
 import { Loading } from '../courses/loading';
+import { CourseCard } from '../courses';
 
 export function Courses() {
   const selectedJob = useSuggestionStore((state) => state.selectedJob);
@@ -30,14 +31,14 @@ export function Courses() {
   if (isLoading) return <Loading />;
 
   return (
-    <div>
-      {selectedJob ? (
+    <div className='mt-8'>
+      {selectedJob && (
         <div>
           <div className="flex flex-col gap-4 text-deep-blue">
             {courses?.length ? (
               <>
                 {courses.map((course, index) => (
-                  <p key={index}>{course.nameEn}</p>
+                  <CourseCard key={index} {...course} />
                 ))}
               </>
             ) : (
@@ -49,8 +50,6 @@ export function Courses() {
             {isFetchingNextPage && <Loading />}
           </div>
         </div>
-      ) : (
-        <p>ค้นหาวิชาจากอาชีพที่ใช่</p>
       )}
     </div>
   );

@@ -29,6 +29,7 @@ USER nextjs
 COPY --chown=nextjs:nodejs --from=deps /usr/app/node_modules ./node_modules
 COPY --chown=nextjs:nodejs --from=builder /usr/app/.next/standalone ./
 COPY --chown=nextjs:nodejs --from=builder /usr/app/.next/static ./.next/static
+COPY --chown=nextjs:nodejs --from=builder /usr/app/public ./public
 
 EXPOSE 3000
 
