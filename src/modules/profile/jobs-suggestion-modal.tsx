@@ -24,7 +24,9 @@ export function JobsSuggestionModal() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">อาชีพที่เหมาะกับคุณ</Button>
+        <div className="flex justify-center">
+          <Button variant="outline">อาชีพที่เหมาะกับคุณ</Button>
+        </div>
       </DialogTrigger>
       <DialogContent className="max-w-[90vw] rounded-lg sm:max-w-[650px]">
         <DialogHeader>

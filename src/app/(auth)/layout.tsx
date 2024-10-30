@@ -1,6 +1,5 @@
-import { AlreadyAuthenticatedGuard } from '@/modules/auth/_guards';
-import { type PropsWithChildren } from 'react';
+import { Suspense, type PropsWithChildren } from 'react';
 
 export default function AuthLayout({ children }: PropsWithChildren) {
-  return <AlreadyAuthenticatedGuard>{children}</AlreadyAuthenticatedGuard>;
+  return <Suspense>{children}</Suspense>;
 }

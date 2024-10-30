@@ -1,3 +1,12 @@
+import Image from 'next/image';
+
 export function NavbarLogo() {
-  return <h1 className="text-2xl md:text-4xl">LOGO</h1>;
+  return (
+    <Image
+      src="/assets/illustrations/logo.png"
+      alt="Logo"
+      width={100}
+      height={50}
+    />
+  );
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useGoogleLogin } from '@/modules/auth/_hooks';
+import { useUserStore } from '@/modules/auth/_store';
 import type { OauthLoginRequest } from '@/modules/auth/_types';
 import { setSession } from '@/modules/auth/_utils';
 import { paths } from '@/shared/routes';
@@ -15,6 +16,8 @@ export default function GoogleCallbackPage() {
 
   const code = searchParams.get('code');
   const state = searchParams.get('state');
+
+  const user = useUserStore((state) => state.user);
 
   const handleLogin = useCallback(
     async (oauthLoginRequest: OauthLoginRequest) => {
@@ -40,14 +43,22 @@ export default function GoogleCallbackPage() {
   );
 
   useEffect(() => {
+    if (user) {
+      router.push(paths.courses.root);
+      return;
+    }
+
     if (code && state) {
       handleLogin({ code, state });
     }
-  }, [code, handleLogin, state]);
+  }, [code, handleLogin, state, user, router]);
 
   return (
-    <div>
-      <h1>กำลังเชื่อมต่อกับบัญชี Google...</h1>
+    <div className="flex h-screen flex-col items-center justify-center">
+      <div className="h-16 w-16 animate-spin rounded-full border-t-4 border-blue-500"></div>
+      <h1 className="mt-4 text-lg text-gray-700">
+        กำลังเชื่อมต่อกับบัญชี Google...
+      </h1>
     </div>
   );
 }

@@ -9,6 +9,7 @@ import { useBoolean } from '@/shared/hooks';
 import { UploadTranscriptModal } from './upload-transcript-modal';
 import { useRouter } from 'next/navigation';
 import { paths } from '@/shared/routes';
+import { JobsSuggestionModal } from './jobs-suggestion-modal';
 
 export function PersonalInfo() {
   const user = useUserStore((state) => state.user);
@@ -31,7 +32,7 @@ export function PersonalInfo() {
 
   return (
     <div className="mx-auto flex w-full flex-col items-center justify-center gap-8 p-4 md:flex-row md:px-8">
-      <div className="flex w-full basis-[35%] justify-center">
+      <div className="flex w-full basis-[40%] justify-center">
         <div className="relative z-20 h-40 w-40 overflow-hidden rounded-full border-4 border-dotted border-orange-300">
           <Image
             src={user?.profileImage || ''}
