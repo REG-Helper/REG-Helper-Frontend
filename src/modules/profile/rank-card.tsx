@@ -32,8 +32,10 @@ export function RankCard({ job }: Props) {
         <span className="text-2xl font-bold">{getMedalIcon(job.rank)}</span>
       </div>
       <div className="mt-4">
-        <h3 className="text-center text-lg font-semibold text-deep-blue">{job.nameEn}</h3>
-        <p className="text-center text-gray-500">{job.nameTh}</p>
+        <h3 className="text-pretty text-center text-lg font-semibold text-deep-blue">
+          {job.nameEn}
+        </h3>
+        <p className="text-pretty text-center text-gray-500 mt-2">{job.nameTh}</p>
       </div>
     </div>
   );
@@ -46,8 +48,8 @@ export function RankCardMobile({ job }: Props) {
         <span className="font-bold">{getMedalIcon(job.rank)}</span>
       </div>
       <div className="ml-4">
-        <h3 className="text-lg font-semibold">{job.nameEn}</h3>
-        <p className="text-gray-500">{job.nameTh}</p>
+        <h3 className="text-pretty text-lg font-semibold">{job.nameEn}</h3>
+        <p className="text-pretty text-gray-500">{job.nameTh}</p>
       </div>
     </div>
   );
