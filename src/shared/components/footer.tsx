@@ -11,7 +11,7 @@ export function Footer() {
           href="https://github.com/orgs/REG-Helper/repositories"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-4xl text-white"
+          className="text-4xl text-light-gray"
         >
           <Icon icon="mdi:github" />
         </Link>
