@@ -17,7 +17,6 @@ export default function ProfilePage() {
           <h1 className="mb-4 text-center text-3xl font-bold">ข้อมูลส่วนตัว</h1>
           <PersonalInfo />
           <SkillsChart />
-          <JobsSuggestionModal />
         </div>
       </div>
     </div>
