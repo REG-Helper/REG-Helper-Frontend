@@ -4,6 +4,8 @@ import { useDocumentTitle } from '@/shared/hooks';
 import { useGetCourse } from './_hooks';
 import type { Section } from './_types';
 import { useCourseStore } from './_store';
+import { CourseGroupMapper, CourseSubGroupMapper } from './_constants';
+import { CourseGroup, CourseSubGroup } from './_enums';
 
 type Props = {
   courseId: string;
@@ -33,13 +35,18 @@ export function CourseDetail({ courseId }: Props) {
 
   return (
     <div>
-      <h1 className="pb-5 text-3xl font-bold text-blue-900">{course?.id}</h1>
-      <h1 className="text-xl font-semibold text-blue-900">{course?.nameEn} </h1>
-      <h1 className="text-xl font-semibold text-blue-900">{course?.nameTh}</h1>
+      <h1 className="pb-5 text-3xl font-bold text-deep-blue">{course?.id}</h1>
+      <h1 className="text-xl font-semibold text-deep-blue">
+        {course?.nameEn}{' '}
+      </h1>
+      <h1 className="text-xl font-semibold text-deep-blue">{course?.nameTh}</h1>
       <div className="mt-4 grid grid-cols-2 items-center space-y-2">
         <div className="flex flex-col">
           <span className="font-medium text-gray-500">รูปแบบรายวิชา</span>
-          <span>{course?.group}</span>
+          <span>
+            {CourseGroupMapper.get(course?.group as CourseGroup)} (
+            {CourseSubGroupMapper.get(course?.subGroup as CourseSubGroup)})
+          </span>
         </div>
         <div className="flex flex-col">
           <span className="font-medium text-gray-500">หน่วยกิต</span>
@@ -57,7 +64,7 @@ export function CourseDetail({ courseId }: Props) {
         <p>{course?.descriptionEn} </p>
       </div>
 
-      <h2 className="mt-4 pb-4 font-semibold text-blue-900">
+      <h2 className="mt-4 pb-4 font-semibold text-deep-blue">
         วันที่เปิดสอน ({currentTerm})
       </h2>
       {course?.sections && course.sections.length > 0 ? (
