@@ -30,10 +30,10 @@ export function UserCourseRemaining() {
             <AccordionItem value={key} key={index}>
               <AccordionTrigger>
                 <div className="flex flex-col text-left">
-                  <div className="text-xl">
+                  <div className="text-xl text-deep-blue">
                     {label} {remainingCourses?.remainingCredits || 0} หน่วยกิต
                   </div>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-vibrant-orange">
                     หลักสูตรต้องการ {remainingCourses?.requiredCredits || 0}{' '}
                     หน่วยกิต
                   </div>
@@ -42,7 +42,7 @@ export function UserCourseRemaining() {
               <AccordionContent>
                 {remainingCourses?.courses?.fixedCourses.length ? (
                   <div>
-                    <div className="text-lg font-medium">
+                    <div className="text-lg font-medium text-deep-blue-dark">
                       คุณต้องลงเรียนวิชาดังต่อไปนี้
                     </div>
                     <div className="my-4 grid grid-flow-row grid-cols-12 gap-2 text-gray-500">
@@ -56,13 +56,13 @@ export function UserCourseRemaining() {
                           key={course.id}
                           className="grid grid-flow-row grid-cols-12 gap-2"
                         >
-                          <div className="my-1">{course.id}</div>
-                          <div className="col-start-4 col-end-10 my-1 hover:underline">
+                          <div className="my-1 text-deep-blue-light">{course.id}</div>
+                          <div className="col-start-4 col-end-10 my-1 text-deep-blue-light hover:underline">
                             <Link href={`${paths.courses.root}/${course.id}`}>
                               {course.nameEn}
                             </Link>
                           </div>
-                          <div className="mx-6 my-1">{course.credit}</div>
+                          <div className="mx-6 my-1 text-deep-blue-light">{course.credit}</div>
                         </li>
                       ))}
                     </ul>
@@ -70,7 +70,7 @@ export function UserCourseRemaining() {
                 ) : undefined}
 
                 {remainingCourses?.courses.electiveCredits ? (
-                  <div className=" text-lg font-medium">
+                  <div className=" text-lg font-medium text-deep-blue-dark">
                     <span
                       className={cn({
                         'hidden mt-4': !remainingCourses?.courses?.fixedCourses.length,

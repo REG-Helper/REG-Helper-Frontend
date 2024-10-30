@@ -6,4 +6,5 @@ export const useGetSkills = () =>
   useQuery({
     queryKey: [QUERY_KEY.SKILLS],
     queryFn: getSkills,
+    retry: false,
   });

@@ -121,10 +121,32 @@ export function RHFFileUpload({ name }: Props) {
 
         setValue(name, files);
       } catch (error) {
-        setError(name, {
-          type: 'manual',
-          message: 'ไม่สามารถอัปโหลดไฟล์ เนื่องจาก format ของไฟล์ไม่ถูกต้อง',
-        });
+        switch ((error as Error)?.message) {
+          case 'Validation failed (expected size is less than 10485760)':
+            setError(name, {
+              type: 'manual',
+              message: 'ขนาดไฟล์ที่อัพโหลดต้องน้อยกว่า 10MB',
+            });
+            break;
+          case 'Validation failed (expected type is application/pdf)':
+            setError(name, {
+              type: 'manual',
+              message: 'กรุณาอัพโหลดไฟล์ในรูปแบบ PDF เท่านั้น',
+            });
+            break;
+          case 'Student ID in transcript file does not match with the user':
+            setError(name, {
+              type: 'manual',
+              message: 'กรุณาอัปโหลดเฉพาะทรานสคริปต์ของตัวเอง',
+            });
+            break;
+          default:
+            setError(name, {
+              type: 'manual',
+              message: 'ไม่สามารถอัพโหลดไฟล์ได้ เนื่องจากรูปแบบไฟล์ไม่ถูกต้อง',
+            });
+        }
+
         setMissingCourses([]);
       } finally {
         isUploading.onFalse();

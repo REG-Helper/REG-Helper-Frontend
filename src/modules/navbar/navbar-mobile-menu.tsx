@@ -36,7 +36,7 @@ export function NavbarMobileMenu() {
         <Icon icon="grommet-icons:menu" className="text-3xl" />
       </SheetTrigger>
       <SheetContent side="right">
-        <div className="mb-16 mt-4 text-center">
+        <div className="mb-8 mt-4 flex justify-center">
           <NavbarLogo />
         </div>
         <NavbarLinks onClick={openNavbar.onFalse} />

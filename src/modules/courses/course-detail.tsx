@@ -64,7 +64,7 @@ export function CourseDetail({ courseId }: Props) {
         <div className="overflow-auto whitespace-nowrap">
           <table className="min-w-full border-collapse overflow-y-auto border border-gray-300">
             <thead>
-              <tr className="bg-gray-100">
+              <tr className="bg-deep-blue-light text-white">
                 <th className="border border-gray-300 p-2">Section</th>
                 <th className="border border-gray-300 p-2">Day</th>
                 <th className="border border-gray-300 p-2">Room</th>

@@ -72,8 +72,6 @@ export function UploadTranscriptModal({ open, setOpen }: Props) {
       });
       setOpen();
     } catch (error) {
-      console.error(error);
-
       enqueueSnackbar('เกิดข้อผิดพลาดในการอัปโหลดทรานสคริปต์', {
         variant: 'error',
       });
@@ -82,7 +80,7 @@ export function UploadTranscriptModal({ open, setOpen }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="w-full max-w-xl p-5">
+      <DialogContent className="w-full max-w-[90vw] rounded-lg p-5 md:max-w-xl">
         <DialogHeader>
           <DialogTitle>อัปโหลดทรานสคริปต์</DialogTitle>
         </DialogHeader>

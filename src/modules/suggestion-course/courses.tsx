@@ -33,7 +33,7 @@ export function Courses() {
     <div>
       {selectedJob ? (
         <div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 text-deep-blue">
             {courses?.length ? (
               <>
                 {courses.map((course, index) => (
