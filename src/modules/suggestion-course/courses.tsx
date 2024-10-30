@@ -4,7 +4,7 @@ import { useEffect, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSuggestionStore } from './_store';
 import { useGetCourses } from '../courses/_hooks';
-import { Loading } from '@/shared/components';
+import { Loading } from '../courses/loading';
 
 export function Courses() {
   const selectedJob = useSuggestionStore((state) => state.selectedJob);
