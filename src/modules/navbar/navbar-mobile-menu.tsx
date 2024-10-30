@@ -33,7 +33,7 @@ export function NavbarMobileMenu() {
   return (
     <Sheet open={openNavbar.value} onOpenChange={openNavbar.onToggle}>
       <SheetTrigger asChild>
-        <Icon icon="grommet-icons:menu" className="text-3xl" />
+        <Icon icon="grommet-icons:menu" className="text-3xl text-white" />
       </SheetTrigger>
       <SheetContent side="right">
         <div className="mb-8 mt-4 flex justify-center ">
