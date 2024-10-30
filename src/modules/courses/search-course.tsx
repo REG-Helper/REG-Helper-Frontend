@@ -22,12 +22,13 @@ export function SearchCourse() {
   }, [setSearch]);
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <Input
         value={searchTerm}
         onChange={handleChange}
         placeholder="ค้นหาด้วยรหัสวิชา / ชื่อวิชา"
         className="py-5 text-base font-medium"
+        style={{ backgroundColor: '#E5E5E5' }}
       />
       <Button
         variant="ghost"
