@@ -84,12 +84,12 @@ export const SkillsChart = memo(function SkillsChartComponent() {
 
   return (
     <div className="relative mx-auto mt-8 max-w-xl text-center">
-      <h1 className="mb-4 text-3xl font-bold">ทักษะ</h1>
+      <h1 className="mb-4 text-3xl font-bold text-deep-blue-dark">ทักษะ</h1>
       {user?.transcript?.url ? (
         <JobsSuggestionModal />
       ) : (
-        <Button variant="outline" disabled={true}>
-          อาชีพที่เหมาะกับคุณ
+        <Button variant="outline" disabled={true}>        
+            อาชีพที่เหมาะกับคุณ
         </Button>
       )}
       {isLoading ? (

@@ -30,7 +30,7 @@ export function JobsSuggestionModal() {
       </DialogTrigger>
       <DialogContent className="max-w-[90vw] rounded-lg sm:max-w-[650px]">
         <DialogHeader>
-          <DialogTitle>อาชีพที่เหมาะกับคุณ</DialogTitle>
+          <DialogTitle className='text-deep-blue-dark'>อาชีพที่เหมาะกับคุณ</DialogTitle>
         </DialogHeader>
 
         <div className="hidden md:block">

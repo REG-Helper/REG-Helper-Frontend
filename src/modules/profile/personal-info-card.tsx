@@ -9,7 +9,7 @@ type Props = {
 export function PersonalInfoCard({ title, content, isLoading }: Props) {
   return (
     <div className="col-span-1 flex flex-col items-start space-y-2">
-      <h2 className="font-semibold text-gray-700">{title}</h2>
+      <h2 className="font-semibold text-deep-blue">{title}</h2>
       {isLoading ? (
         <Skeleton className="h-10 w-full rounded-lg bg-gray-100 px-5 py-2" />
       ) : (
