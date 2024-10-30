@@ -9,7 +9,7 @@ type Props = {
 
 export function NavbarLinks({ onClick }: Props) {
   return (
-    <div className="text-deep-blue-dark flex flex-col items-center gap-8 md:flex-row">
+    <div className="text-white flex flex-col items-center gap-8 md:flex-row">
       {NAV_LINKS.map((navLink) => (
         <Link
           key={navLink.id}
