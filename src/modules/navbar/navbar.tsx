@@ -26,7 +26,7 @@ export function Navbar() {
           </div>
         </div>
         <div className="flex">
-          <div className="hidden text-white md:block">
+          <div className="hidden text-deep-blue-dark md:block">
             {user ? <NavbarProfile /> : <GoogleLoginBtn />}
           </div>
           <div className="block md:hidden">

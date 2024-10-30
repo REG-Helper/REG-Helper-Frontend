@@ -114,13 +114,16 @@ export function RHFFileUpload({ name }: Props) {
 
       try {
         isUploading.onTrue();
-        const response = await verifyTranscript(formData);
-        setMissingCourses(response.missingCourses);
+        if (files.length > 0) {
+          const response = await verifyTranscript(formData);
+          setMissingCourses(response.missingCourses);
 
-        setUploadedFiles([...files]);
+          setUploadedFiles([...files]);
 
-        setValue(name, files);
+          setValue(name, files);
+        }
       } catch (error) {
+        console.log(error);
         switch ((error as Error)?.message) {
           case 'Validation failed (expected size is less than 10485760)':
             setError(name, {
