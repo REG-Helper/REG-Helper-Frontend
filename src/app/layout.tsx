@@ -12,7 +12,7 @@ const prompt = Prompt({
 
 export const metadata: Metadata = {
   description: 'Check remaining credits: Computer Engineering',
-  icons: '/next.svg',
+  icons: '/logo.ico',
 };
 
 export default function RootLayout({
